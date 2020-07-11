@@ -76,8 +76,58 @@ npm start
 이렇게 창이 뜨면 성공입니다:fire:
 
 <br/>
-<img src="./imgs/doc2_img_2.PNG" alt="code result" /> <br/>
+<img src="./imgs/doc2_img_3.PNG" alt="code result" /> <br/>
 
 앱을 생성하게 되면 다음과 같은 파일 구조를 가집니다.    
 우선 `node_modules`는 설정했던 모듈, 패키지가 저장되어 있습니다. 이 폴더 내에서만 사용할 수 있습니다.   
-여기서 핵심적으로 봐야할 것은 `App.js`, `index.js`, `index.html` 입니다.
+여기서 핵심적으로 봐야할 것은 `App.js`, `index.js`, `index.html` 입니다.    
+
+`index.html`을 보면 `root`밖에 없는데 화면에 뿌려지는 것들이 있습니다. 이건 `index.js` 파일로 가면 
+```
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+이렇게 되어 있습니다.
+`react DOM`이 `App`이란 컴포넌트를 id가 `root` 인 곳에 뿌려주겠다는 것입니다.
+그렇다면 이제  `App.js`를  가보겠습니다.
+이곳에 들어와보면 아까 `index.html`에 있는 코드가 있습니다.
+
+그렇다면 코드를 조금 바꿔보면서 리액트가 동작하는 방식을 보도록 하겠습니다.     
+`index.js` 에서 `<App />` 이 곳을 `<h1>hello world</h1>` 으로 바꿔보도록 하겠습니다.
+
+<br/>
+
+<img src="./imgs/doc2_img_4.PNG" alt="code result" /> <br/>
+
+이렇게 보여지는 페이지가 바뀌는 것을 볼 수 있습니다:boom:       
+
+그럼 이제 `App.js`에서 파일의 내용을 바꿔보도록 하겠습니다.
+
+```
+import React from 'react';
+// import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello world</h1>
+      <p>this is an example react app :)</p>
+    </div>
+  );
+}
+
+export default App;
+```
+이렇게 바꾸면 어떻게 될까요?
+<br/>
+<img src="./imgs/doc2_img_5.PNG" alt="code result" /> <br/>
+위와 같이 변경사항이 적용된 것을 볼 수 있습니다.    
+
+그리고 위와 같은 `function`이 바로 컴포넌트 입니다.     
+그리고 `export default App`이 바로 이 컴포넌트를 내보내는 것이고 이렇게 내보낸 것을 `index.html` 파일에서 `import App from './App';`으로 가져오는 구조입니다.   
+`export`에서 `default`라는 것은 기본적으로 이 것 하나만 내보내겠다는 의미 입니다.
