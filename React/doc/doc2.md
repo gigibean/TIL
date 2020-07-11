@@ -63,7 +63,7 @@ npx creat-react-app my-app
 이렇게 다운로드 받으시면 `react`, `react dom`, `react script` 3가지를 다운받게 됩니다.
 
 <br/>
-<img src="./imgs/doc2_img_1.PNG" alt="code result" /> <br/>
+<img src="./imgs/doc2_img_1.png" alt="code result" /> <br/>
 위와 같은 창이 나오면 다운로드 성공입니다 :clap:	
 
 ```
@@ -72,11 +72,11 @@ npm start
 ```
 이제 이렇게 터미털 창에 명령어를 입력하시면 됩니다.
 <br/>
-<img src="./imgs/doc2_img_2.PNG" alt="code result" /> <br/>
+<img src="./imgs/doc2_img_2.png" alt="code result" /> <br/>
 이렇게 창이 뜨면 성공입니다:fire:
 
 <br/>
-<img src="./imgs/doc2_img_3.PNG" alt="code result" /> <br/>
+<img src="./imgs/doc2_img_3.png" alt="code result" /> <br/>
 
 앱을 생성하게 되면 다음과 같은 파일 구조를 가집니다.    
 우선 `node_modules`는 설정했던 모듈, 패키지가 저장되어 있습니다. 이 폴더 내에서만 사용할 수 있습니다.   
@@ -101,7 +101,7 @@ ReactDOM.render(
 
 <br/>
 
-<img src="./imgs/doc2_img_4.PNG" alt="code result" /> <br/>
+<img src="./imgs/doc2_img_2.png" alt="code result" /> <br/>
 
 이렇게 보여지는 페이지가 바뀌는 것을 볼 수 있습니다:boom:       
 
@@ -125,7 +125,7 @@ export default App;
 ```
 이렇게 바꾸면 어떻게 될까요?
 <br/>
-<img src="./imgs/doc2_img_5.PNG" alt="code result" /> <br/>
+<img src="./imgs/doc2_img_5.png" alt="code result" /> <br/>
 위와 같이 변경사항이 적용된 것을 볼 수 있습니다.    
 
 그리고 위와 같은 `function`이 바로 컴포넌트 입니다.     
