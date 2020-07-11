@@ -101,7 +101,7 @@ ReactDOM.render(
 
 <br/>
 
-<img src="./imgs/doc2_img_2.png" alt="code result" /> <br/>
+<img src="./imgs/doc2_img_4.png" alt="code result" /> <br/>
 
 이렇게 보여지는 페이지가 바뀌는 것을 볼 수 있습니다:boom:       
 
