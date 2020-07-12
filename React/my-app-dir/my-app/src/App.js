@@ -14,7 +14,7 @@ function worldClock(props) {
 function App() {
   return (
     <div className="App">
-      <h1 classN ame={'myClass'}>Hello world</h1>
+      <h1 className={'myClass'}>Hello world</h1>
       <p>this is an example react app :)</p>
       <worldClock city={'서울'} time={10}/>
       <worldClock city={'베이징'} time={9}/>
