@@ -12,15 +12,20 @@ function WorldClock(props) {
 }
 
 function App() {
+  const cityTimeData = [
+    ['서울', 10],
+    ['베이징', 9],
+    ['시드니', 12],
+    ['시드니', 17],
+  ]
+  const worldClockList = cityTimeData.map((props, index)=>
+    <WorldClock city={props[0]} time={props[1]} key={index}/>
+  )
   return (
     <div className="App">
       <h1 className={'myClass'}>Hello world</h1>
       <p>this is an example react app :)</p>
-      <WorldClock city={'서울'} time={10}/>
-      <WorldClock city={'베이징'} time={9}/>
-      <WorldClock city={'시드니'} time={12}/>
-      <WorldClock city={'LA'} time={17}/>
-
+      {worldClockList}
     </div>
   );
 }
