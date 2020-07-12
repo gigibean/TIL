@@ -26,7 +26,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
-function worldClock(props) {
+function WorldClock(props) {
   return (
     <div className={'worldClock'}>
         <h2>🌏 {props.city}</h2>
@@ -38,12 +38,12 @@ function worldClock(props) {
 function App() {
   return (
     <div className="App">
-      <h1 classN ame={'myClass'}>Hello world</h1>
+      <h1 className={'myClass'}>Hello world</h1>
       <p>this is an example react app :)</p>
-      <worldClock city={'서울'} time={10}/>
-      <worldClock city={'베이징'} time={9}/>
-      <worldClock city={'시드니'} time={12}/>
-      <worldClock city={'LA'} time={17}/>
+      <WorldClock city={'서울'} time={10}/>
+      <WorldClock city={'베이징'} time={9}/>
+      <WorldClock city={'시드니'} time={12}/>
+      <WorldClock city={'LA'} time={17}/>
 
     </div>
   );
@@ -51,5 +51,5 @@ function App() {
 
 export default App;
 ```
-위와 같이 코드를 작성해 보겠습니다. 함수 `worldClock`을 선언한 후에 함수 `App`에서 사용합니다. 그리고 `city={'서울'}`과 같이 인자값을 적어줍니다.   
-상위 컴포넌트인 `App`에서 각각의 `worldClock` 컴포넌트로 `props`를 통해서 데이터가 전달되고 있다는 것을 확인할 수 있습니다.     
+위와 같이 코드를 작성해 보겠습니다. 함수 `WorldClock`을 선언한 후에 함수 `App`에서 사용합니다. 그리고 `city={'서울'}`과 같이 인자값을 적어줍니다.   
+상위 컴포넌트인 `App`에서 각각의 `WorldClock` 컴포넌트로 `props`를 통해서 데이터가 전달되고 있다는 것을 확인할 수 있습니다.     
