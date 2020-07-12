@@ -55,3 +55,76 @@ export default App;
 상위 컴포넌트인 `App`에서 각각의 `WorldClock` 컴포넌트로 `props`를 통해서 데이터가 전달되고 있다는 것을 확인할 수 있습니다.   
 
 <img src="./imgs/doc4_img_1.png" alt="code result" /> <br/>
+
+## List & Key
+여러개의 컴포넌트들의 집합이 있는데, 이것을 단순화해보려고 합니다.
+필요한 정보들만 모으고 필요한 정보들을 활용하는 방법에 대해 알아보려 합니다.
+
+`App.js`에 함수 `App`에 `cityTimeData`라는 배열을 하나 생성해 보겠습니다.
+
+```
+const cityTImeData = [
+    ['서울', 10],
+    ['베이징', 9],
+    ['시드니', 12],
+    ['시드니', 17],
+  ]
+```
+
+그리고 `cityTimeData`를 매핑해주는 `worldClockList`를 하나 만듭니다. 
+
+```
+import React from 'react';
+// import logo from './logo.svg';
+import './App.css';
+
+function WorldClock(props) {
+  return (
+    <div className={'worldClock'}>
+        <h2>🌏 {props.city}</h2>
+        <p>⏰ {props.time} 시</p>
+    </div>
+  )
+}
+
+function App() {
+  const cityTimeData = [
+    ['서울', 10],
+    ['베이징', 9],
+    ['시드니', 12],
+    ['시드니', 17],
+  ]
+  const worldClockList = cityTimeData.map((props)=>
+    <WorldClock city={props[0]} time={props[1]}/>
+  )
+  return (
+    <div className="App">
+      <h1 className={'myClass'}>Hello world</h1>
+      <p>this is an example react app :)</p>
+      {/* <WorldClock city={'서울'} time={10}/>
+      <WorldClock city={'베이징'} time={9}/>
+      <WorldClock city={'시드니'} time={12}/>
+      <WorldClock city={'LA'} time={17}/> */}
+      {worldClockList}
+
+    </div>
+  );
+}
+
+export default App;
+```
+
+위와 같이 기존에 있던 여러개의 인자값만 다른 `WorldClock`을 리스트로 만들어서 자바스크립트 문법으로 처리합니다.
+
+그런데 이 앱을 실행시켜보면 아래와 같은 오류 문구가 뜹니다.
+```
+index.js:1 Warning: Each child in a list should have a unique "key" prop.
+```
+이는 유니크한 키값을 요구한다는 것인데, 이럴 때는 각 키를 `index`로 받아주면 됩니다.:smile:
+```
+const worldClockList = cityTimeData.map((props, index)=>
+    <WorldClock city={props[0]} time={props[1]} key={index}/>
+  )
+```
+이 map에서 하나의 인자만 넘겨줄 때는 각 값들에 대해서 넘겨주게 되고 두 개 인자로 넘겨줄 때는 인덱스 값을 같이 넘겨주게 됩니다.      
+`key`는 리액트가 어떤 아이템이 바뀌고 추가되고 삭제되는지 아는데 굉장히 도움을 준다고 합니다. 리액트는 변화를 최대한 빨리감지해서 최소한의 변화를 주는 것이 핵심인데 어느 부분이 바뀌었는지 정확히 알기위해서 사용되는 것입니다.
