@@ -52,4 +52,6 @@ function App() {
 export default App;
 ```
 위와 같이 코드를 작성해 보겠습니다. 함수 `WorldClock`을 선언한 후에 함수 `App`에서 사용합니다. 그리고 `city={'서울'}`과 같이 인자값을 적어줍니다.   
-상위 컴포넌트인 `App`에서 각각의 `WorldClock` 컴포넌트로 `props`를 통해서 데이터가 전달되고 있다는 것을 확인할 수 있습니다.     
+상위 컴포넌트인 `App`에서 각각의 `WorldClock` 컴포넌트로 `props`를 통해서 데이터가 전달되고 있다는 것을 확인할 수 있습니다.   
+
+<img src="./imgs/doc4_img_1.png" alt="code result" /> <br/>
