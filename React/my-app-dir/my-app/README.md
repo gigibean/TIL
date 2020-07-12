@@ -1,4 +1,4 @@
-이 프로젝트 예제에 관련된 문서는 doc2를 참고해주시면 됩니다:smile:
+이 프로젝트 예제에 관련된 문서는 doc를 참고해주시면 됩니다:smile:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
