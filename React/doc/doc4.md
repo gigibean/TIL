@@ -128,3 +128,73 @@ const worldClockList = cityTimeData.map((props, index)=>
 ```
 이 map에서 하나의 인자만 넘겨줄 때는 각 값들에 대해서 넘겨주게 되고 두 개 인자로 넘겨줄 때는 인덱스 값을 같이 넘겨주게 됩니다.      
 `key`는 리액트가 어떤 아이템이 바뀌고 추가되고 삭제되는지 아는데 굉장히 도움을 준다고 합니다. 리액트는 변화를 최대한 빨리감지해서 최소한의 변화를 주는 것이 핵심인데 어느 부분이 바뀌었는지 정확히 알기위해서 사용되는 것입니다.
+
+## State
+각 컴포넌트들이 가질 수 있는 정보의 집합, 그 정보들은 `Props`를 통해서 하위 컴포넌트로 넘길 수 있습니다. 상태는 있을 수도 있고 없을 수도 있습니다. 이 상태라는 것은 비용이 많이드는 문제이기 때문입니다. 그렇기 때문에 웬만해선 필요한 것에만 `State`를 넣어야합니다.   
+`state`로 넣는 기준은
+1. Props 만으로도 표현할 수 있는지
+2. Render로 표시되지 않는 값인지
+이 위 2개에 해당되지 않는다면 State로 넣어야 합니다.
+
+기존에는 `function` 컴포넌트에서는 `state`를 사용할 수 없고, `class`에서만 사용할 수 있었습니다. 하지만 현재는 `hook`이라는 것을 이용해서 `function`에서도 `state`를 사용할 수 있게 되었습니다.   
+그럼에도 이전에 웬만한 컴포넌트들은 클래스로 되어이 있고, 이에 따른 라이프사이클도 이해할 수 있어야 `hook`도 이해할 수 있기 때문에 우선 클래스 컴포넌트의  `state`를 다뤄보도록 하겠습니다.   
+
+`App.js`에서 클래스를 하나 생성해 줍니다.
+
+`React.Component`는 `props`를 인풋으로 받기 때문에 적어준 것이고 `super()` 이렇게 하면 `React.Component`의 기능을 이용할 수 있습니다.
+```
+import React from 'react';
+// import logo from './logo.svg';
+import './App.css';
+
+// function WorldClock(props) {
+//   return (
+//     <div className={'worldClock'}>
+//         <h2>🌏 {props.city}</h2>
+//         <p>⏰ {props.time} 시</p>
+//     </div>
+//   )
+// }
+
+function App() {
+  const cityTimeData = [
+    ['서울', 10],
+    ['베이징', 9],
+    ['시드니', 12],
+    ['시드니', 17],
+  ]
+  const worldClockList = cityTimeData.map((props, index)=>
+    <WorldClock city={props[0]} time={props[1]} key={index}/>
+  )
+  return (
+    <div className="App">
+      <h1 className={'myClass'}>Hello world</h1>
+      <p>this is an example react app :)</p>
+      {worldClockList}
+    </div>
+  );
+}
+
+class WorldClock extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      hour: this.props.time,
+      minute: 0
+    }
+  }
+  // 미리 약속된 함수
+  render() {
+    return (
+      <div className={'worldClock'}>
+          <h2>🌏 {this.props.city}</h2>
+          <p>⏰ {this.state.hour} 시 {this.state.minute} 분</p>
+      </div>
+    )
+  }
+}
+
+export default App;
+```
+
+그리고 `state`를 이용하기 위해서는 요구사항이 필요합니다. props 만으로 해결이 안되는 것을 추가해주어야 합니다. 예를들어 시간과 분이 동적으로 변화하는 것이 있겠죠. 
