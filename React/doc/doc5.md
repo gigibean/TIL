@@ -91,3 +91,25 @@ class WorldClock extends React.Component {
 export default App;
 
 ```
+
+## 결국 컴포넌트란
+```
+class SampleComponent extends React.Component
+```
+```
+LifeCycle 관련 함수 설정
+    constructor
+    componentDidMount, componentDidUpdate
+    componentWillUnmount
+```
+```
+eventHandler 함수들
+필요한 기능 함수들
+```
+```
+render 함수
+    return <div className={"sampleComponent"}>
+        JSX, component
+    </div>
+```
+각각의 블럭이 필요할 때 뭉처져서 하나의 컴포넌트를 이룹니다.    
