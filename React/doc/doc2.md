@@ -130,4 +130,4 @@ export default App;
 
 그리고 위와 같은 `function`이 바로 컴포넌트 입니다.     
 그리고 `export default App`이 바로 이 컴포넌트를 내보내는 것이고 이렇게 내보낸 것을 `index.html` 파일에서 `import App from './App';`으로 가져오는 구조입니다.   
-`export`에서 `default`라는 것은 기본적으로 이 것 하나만 내보내겠다는 의미 입니다.
+`export`에서 `default`라는 것은 기본적으로 이 것 하나만 내보내겠다는 의미 입니다.   
