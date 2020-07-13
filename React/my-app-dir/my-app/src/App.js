@@ -12,12 +12,28 @@ class  App extends React.Component {
       ['시드니', 17],
     ]
     this.state = {
-      content: ""
+      content: "",
+      show: true
     }
+    console.log("parent) 시작합니다.");
+    
+  }
+
+  componentDidMount() {
+    console.log("Parent) 마운트되었습니다.");
+    
+  }
+
+  componentDidUpdate() {
+    console.log("parent) 업데이트");
   }
 
   handlingChange = (event) => {
     this.setState({content: event.target.value})
+  }
+
+  handlingClick = (event) => {
+    this.setState((prevState)=>({show : !prevState.show}))
   }
 
   render () {
@@ -28,8 +44,11 @@ class  App extends React.Component {
         <div className={'post'}>
           <textarea value={this.state.content} onChange={this.handlingChange}></textarea>
         </div>
-        {this.cityTimeData.map((props, index)=>
-          <WorldClock city={props[0]} time={props[1]} key={index}/>
+        <button onClick={this.handlingClick}>{this.state.show ? "unshow" : "show"}</button>
+        {
+          this.state.show &&
+          this.cityTimeData.map((props, index)=>
+            <WorldClock city={props[0]} time={props[1]} key={index}/>
         )}
       </div>
     );
@@ -51,6 +70,20 @@ class WorldClock extends React.Component {
         :{minute: state.minute + 1}),
       )
     }, 1000)
+    console.log("Child) 시작합니다.");
+  }
+
+  componentDidMount() {
+    console.log("Child) 마운트되었습니다."); 
+  }
+
+  componentDidUpdate() {
+    console.log("child) 업데이트");
+  }
+
+  componentWillUnmount() {
+    console.log("child) 언마운트");
+    clearInterval(this.timer)
   }
 
   handlingClick = (event) => {
