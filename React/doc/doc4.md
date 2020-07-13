@@ -197,4 +197,26 @@ class WorldClock extends React.Component {
 export default App;
 ```
 
-그리고 `state`를 이용하기 위해서는 요구사항이 필요합니다. props 만으로 해결이 안되는 것을 추가해주어야 합니다. 예를들어 시간과 분이 동적으로 변화하는 것이 있겠죠. 
+그리고 `state`를 이용하기 위해서는 요구사항이 필요합니다. props 만으로 해결이 안되는 것을 추가해주어야 합니다. 예를들어 시간과 분이 동적으로 변화하는 것이 있겠죠.  
+동적, 모듈화 방법을 알아보도록하겠습니다.
+`state`는 `setState`를 사용해야합니다.
+`state`가 변화면 바로 렌더가 일어납니다. 
+```
+class WorldClock extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      hour: this.props.time,
+      minute: 0
+    }
+    setInterval(()=>{
+      this.setState((state) => (
+        state.minute === 59 //현재 minute이 59라면
+        ?{hour: state.hour + 1, minute: 0} // 현재 hour에 +1d을 하고, minute은 0으로
+        :{minute: state.minute + 1} //아니면 minute 을 +1 
+        
+      ))
+    }, 1000) //1초 마다
+  }
+  ```
+  
