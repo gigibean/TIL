@@ -4,24 +4,24 @@
  먼저 프로젝트를 clone하고 해당 프로젝트 폴더로 이동합니다.
 ```
 (git clone https://github.com/csy1204/djangobackend.git)
-cd react\my-app-dir\react-django-app  
+cd React\my-app-dir\react-django-app  
 ```
 
 ## Install
  필요한 패키지를 설치해줍니다.
 ```
-(optional) pip install django
-pip install djangorestframework
-pip install django-cors-headers
+(optional) pip3 install django
+pip3 install djangorestframework
+pip3 install django-cors-headers
 (크로스오리진문제해결위해)
 ```
 
 ## Run
   DB 마이그레이션을 한 후 서버를 켭니다.
 ```
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
 ```
 
 ## API명세
