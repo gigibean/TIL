@@ -2,15 +2,6 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
-function WorldClock(props) {
-  return (
-    <div className={'worldClock'}>
-        <h2>🌏 {props.city}</h2>
-        <p>⏰ {props.time} 시</p>
-    </div>
-  )
-}
-
 function App() {
   const cityTimeData = [
     ['서울', 10],
@@ -28,6 +19,25 @@ function App() {
       {worldClockList}
     </div>
   );
+}
+
+class WorldClock extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      hour: this.props.time,
+      minute: 0
+    }
+  }
+  // 미리 약속된 함수
+  render() {
+    return (
+      <div className={'worldClock'}>
+          <h2>🌏 {this.props.city}</h2>
+          <p>⏰ {this.state.hour} 시 {this.state.minute} 분</p>
+      </div>
+    )
+  }
 }
 
 export default App;
