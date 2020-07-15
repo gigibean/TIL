@@ -115,3 +115,15 @@ api/ ^\.(?P<format>[a-z0-9]+)/?$ [name='api-root']
 ```
 python3 manage.py runserver
 ```
+
+## API 테스트
+
+### django-rest-framework
+<br/><img src="./imgs/readme_img_1.png" alt="code result" /> <br/>
+<br/><img src="./imgs/readme_img_2.png" alt="code result" /> <br/>
+<br/><img src="./imgs/readme_img_3.png" alt="code result" /> <br/>
+
+### postman
+<br/><img src="./imgs/readme_img_6.png" alt="code result" /> <br/>
+<br/><img src="./imgs/readme_img_7.png" alt="code result" /> <br/>
+<br/><img src="./imgs/readme_img_8.png" alt="code result" /> <br/>
