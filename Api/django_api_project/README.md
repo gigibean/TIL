@@ -127,3 +127,6 @@ python3 manage.py runserver
 <br/><img src="./imgs/readme_img_6.png" alt="code result" /> <br/>
 <br/><img src="./imgs/readme_img_7.png" alt="code result" /> <br/>
 <br/><img src="./imgs/readme_img_8.png" alt="code result" /> <br/>
+
+
+:smile:
