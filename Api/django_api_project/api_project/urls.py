@@ -25,4 +25,5 @@ router.register('posts', PostViewSet)
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('api/', include(router.urls)),
+    # url(r'api/posts/^(?P<pk>\d+)/like/$',LikeToggleAPIView.as_view(),name='like-toggle'),
 ]
