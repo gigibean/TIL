@@ -10,5 +10,5 @@ data = {
 encData = urlencode(data)
 postData = bytes(encData, encoding='utf-8')
 req = Request(url, data=postData)
-with urlopen(req) as request:
+with urlopen(req) as response:
     print(request.info())
