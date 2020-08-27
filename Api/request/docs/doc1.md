@@ -462,3 +462,111 @@ False를 반환합니다. 혹은 경로가 존재하지 않은 경우에는 Fals
 
 
 출처: https://devanix.tistory.com/298 [┗System∑Sec†ion┛]
+
+# http.client
+## class http.client.HTTPConnection(host, port=None, [timeout, ]source_address=None, blocksize=8192)
+HTTPConnection 인스턴스는 HTTP 서버와의 하나의 트랜잭션을 나타냅니다. 호스트와 선택적 포트 번호를 전달하여 인스턴스화해야 합니다. 포트 번호가 전달되지 않으면, host 문자열이 host:port 형식이면 여기에서 포트가 추출됩니다, 그렇지 않으면 기본 HTTP 포트(80)가 사용됩니다. 선택적 timeout 매개 변수가 제공되면, 블로킹 연산(연결 시도와 같은)이 지정된 초 후에 시간제한으로 종료됩니다 (제공되지 않으면, 전역 기본 시간제한 설정이 사용됩니다). 선택적 source_address 매개 변수는 HTTP 연결의 소스 주소로 사용할 (호스트, 포트)의 튜플일 수 있습니다. 선택적 blocksize 매개 변수는 파일류 메시지 바디를 보내는 데 필요한 버퍼 크기를 바이트 단위로 설정합니다.
+
+예를 들어, 다음 호출은 모두 같은 호스트와 포트에 있는 서버에 연결하는 인스턴스를 만듭니다:
+
+```shell
+>>> h1 = http.client.HTTPConnection('www.python.org')
+>>> h2 = http.client.HTTPConnection('www.python.org:80')
+>>> h3 = http.client.HTTPConnection('www.python.org', 80)
+>>> h4 = http.client.HTTPConnection('www.python.org', 80, timeout=10)
+```
+
+### HTTPConnection 객체
+#### HTTPConnection.request(method, url, body=None, headers={}, *, encode_chunked=False)
+HTTP 요청 메서드 method와 선택기(selector) url을 사용하여 서버로 요청을 보냅니다.
+
+#### HTTPConnection.getresponse()
+요청을 보낸 후에 서버에서 응답을 받기 위해 호출해야 합니다. HTTPResponse 인스턴스를 반환합니다.
+
+#### HTTPConnection.set_debuglevel(level)
+디버깅 수준을 설정합니다. 기본 디버그 수준은 0이며, 디버깅 출력이 인쇄되지 않음을 의미합니다. 0보다 큰 값을 지정하면 현재 정의된 모든 디버그 출력이 표준 출력으로 인쇄됩니다. debuglevel은 만들어지는 모든 새로운 HTTPResponse 객체로 전달됩니다.
+
+#### HTTPConnection.set_tunnel(host, port=None, headers=None)
+HTTP Connect 터널링(tunnelling)을 위한 host와 및 port를 설정합니다. 프락시 서버를 통해 연결을 실행할 수 있도록 합니다.
+
+host와 port 인자는 터널링 된 연결의 말단(즉 CONNECT 요청에 포함되는 주소, 프락시 서버의 주소가 아닙니다)을 지정합니다.
+
+headers 인자는 CONNECT 요청과 함께 보낼 추가 HTTP 헤더의 매핑이어야 합니다.
+
+예를 들어, 포트 8080에서 로컬로 실행되는 HTTPS 프락시 서버를 통해 터널링 하려면, 프락시 주소를 HTTPSConnection 생성자에 전달하고, 최종적으로 set_tunnel() 메서드에 도달하려는 호스트 주소를 전달합니다:
+
+```shell
+>>> import http.client
+>>> conn = http.client.HTTPSConnection("localhost", 8080)
+>>> conn.set_tunnel("www.python.org")
+>>> conn.request("HEAD","/index.html")
+```
+#### HTTPConnection.connect()
+객체가 만들어질 때 지정된 서버에 연결합니다. 기본적으로, 클라이언트가 이미 연결되지 않았다면 요청 시 자동으로 호출됩니다.
+
+#### HTTPConnection.close()
+서버로의 연결을 닫습니다.
+
+#### HTTPConnection.blocksize
+파일류 메시지 바디를 보내기 위한 바이트 단위의 버퍼 크기.
+
+위에서 설명한 request() 메서드를 사용하는 대신, 아래 네 가지 함수를 사용하여 단계별로 요청을 보낼 수도 있습니다.
+
+#### HTTPConnection.putrequest(method, url, skip_host=False, skip_accept_encoding=False)
+서버에 연결한 후 첫 번째 호출이어야 합니다. method 문자열, url 문자열 및 HTTP 버전(HTTP/1.1)으로 구성된 줄을 서버로 보냅니다. Host:나 Accept-Encoding: 헤더의 자동 전송을 비활성화하려면 (예를 들어 추가 콘텐츠 인코딩을 허용하려면), False가 아닌 값으로 skip_host나 skip_accept_encoding을 지정하십시오.
+
+#### HTTPConnection.putheader(header, argument[, ...])
+RFC 822 스타일 헤더를 서버에 보냅니다. header, 콜론과 공백 및 첫 번째 인자로 구성된 줄을 서버로 보냅니다. 더 많은 인자가 제공되면, 탭과 인자로 구성된 연속 줄(continuation lines)이 전송됩니다.
+
+#### HTTPConnection.endheaders(message_body=None, *, encode_chunked=False)
+헤더의 끝을 알리는 빈 줄을 서버에 보냅니다. 선택적 message_body 인자를 사용하여 요청과 연관된 메시지 바디를 전달할 수 있습니다.
+
+encode_chunked가 True이면, message_body의 각 이터레이션 결과는 RFC 7230, 섹션 3.3.1에 지정된 대로 청크 인코딩됩니다. 데이터의 인코딩 방식은 message_body의 형에 따라 다릅니다. message_body가 버퍼 인터페이스를 구현하면, 인코딩은 단일 청크를 만듭니다. message_body가 collections.abc.Iterable이면, message_body의 각 이터레이션이 청크가 됩니다. message_body가 파일 객체이면, 각 .read() 호출마다 청크가 됩니다. 이 메서드는 message_body 직후에 청크 인코딩된 데이터의 끝을 자동으로 알립니다.
+
+참고 청크 인코딩 명세로 인해, 이터레이터 바디에서 산출된 빈 청크는 청크 인코더에서 무시됩니다. 이는 형식이 잘못된 인코딩으로 인해 대상 서버의 요청 읽기가 조기에 종료되지 않도록 하려는 것입니다.
+버전 3.6에 추가: 청크 인코딩 지원. encode_chunked 매개 변수가 추가되었습니다.
+
+### HTTPConnection.send(data)
+서버로 data를 보냅니다. 이것은 endheaders() 메서드가 호출된 후, 그리고 getresponse()가 호출되기 전에만 직접 사용해야 합니다.
+
+## class http.client.HTTPSConnection(host, port=None, key_file=None, cert_file=None, [timeout, ]source_address=None, *, context=None, check_hostname=None, blocksize=8192)
+보안 서버와의 통신에 SSL을 사용하는 HTTPConnection의 서브 클래스. 기본 포트는 443입니다. context가 지정되면, 다양한 SSL 옵션을 기술하는 ssl.SSLContext 인스턴스여야 합니다.
+
+http.client 설명: https://docs.python.org/ko/3/library/http.client.html
+
+## class http.client.HTTPResponse(sock, debuglevel=0, method=None, url=None)
+성공적으로 연결되면 반환되는 인스턴스의 클래스. 사용자가 직접 인스턴스화 하지 않습니다.
+
+### HTTPResponse 객체
+#### HTTPResponse.read([amt])
+응답 바디나 다음 최대 amt 바이트를 읽고 반환합니다.
+
+#### HTTPResponse.readinto(b)
+응답 바디의 다음 최대 len(b) 바이트를 버퍼 b로 읽습니다. 읽은 바이트 수를 반환합니다.
+
+#### HTTPResponse.getheader(name, default=None)
+헤더 name의 값을 반환하거나, name과 일치하는 헤더가 없으면 default를 반환합니다. 이름이 name인 헤더가 둘 이상 있으면, 〈,〉로 연결한 모든 값을 반환합니다. 〈default’가 단일 문자열 이외의 이터러블이면, 해당 요소들도 마찬가지로 쉼표로 연결되어 반환됩니다.
+
+#### HTTPResponse.getheaders()
+(헤더, 값) 튜플의 리스트를 반환합니다.
+
+#### HTTPResponse.fileno()
+하부 소켓의 fileno를 반환합니다.
+
+#### HTTPResponse.msg
+응답 헤더를 포함하는 http.client.HTTPMessage 인스턴스. http.client.HTTPMessage는 email.message.Message의 서브 클래스입니다.
+
+#### HTTPResponse.version
+서버가 사용하는 HTTP 프로토콜 버전. HTTP/1.0의 경우 10, HTTP/1.1의 경우 11.
+
+#### HTTPResponse.status
+서버가 반환한 상태 코드.
+
+#### HTTPResponse.reason
+서버가 반환한 이유 문구.
+
+#### HTTPResponse.debuglevel
+디버깅 훅. debuglevel이 0보다 크면, 응답을 읽고 구문 분석할 때 메시지가 표준 출력으로 인쇄됩니다.
+
+#### HTTPResponse.closed
+스트림이 닫혔으면 True입니다.
