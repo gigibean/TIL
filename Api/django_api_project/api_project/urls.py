@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url, include
 from rest_framework import routers
+from api_app import views
 from api_app.views import PostViewSet
 
 router = routers.DefaultRouter()
@@ -25,5 +26,6 @@ router.register('posts', PostViewSet)
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('api/', include(router.urls)),
+    url('cookie/', views.cookie_view, name='cookie'),
     # url(r'api/posts/^(?P<pk>\d+)/like/$',LikeToggleAPIView.as_view(),name='like-toggle'),
 ]
