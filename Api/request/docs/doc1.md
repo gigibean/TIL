@@ -127,5 +127,338 @@ print(result3)
 #{'sort': 'name', 'keyword': 'old'}
 #sort=name&keyword=old
 ```
+# proxy
+urllib는 파락시 설정을 자동 감지하여 사용합니다. 이는 프락시 설정이 감지될 때 일반 처리기 체인의 일부가 도는 ProxyHandler 를 통해 이루어진다. 일반적으로 좋은 일이지만 도움이 되지 않는 경우가 있다. 이를 위한 한가지 방법은 프락시가 정의되지 않은 자체 ProxyHandler를 설정하는 것이다.
+```python
+proxy_support = urllib.request.ProxyHandler({})
+opener = rullib.request.build_opener(proxy_support)
+urllib.request.install_opener(opener)
+```
+현재 urllib.request는 프락시를 통하 https위치를 가져오는 것을 지원하지 않느낟. 그러나 urllib.request를 확장하여 활성화 할 수 있다.  
+
+# 소켓과 계층
+urllib 은 http.client 라이브러리를 사용하고, 이것은 다시 socket 라이브러리를 사용한다.
+시간제한으로 중단되기 전에 소켓에 응답을 기다리는 시간을 지정할 수 있다. 웹페이지를 가져와야 하는 응용 프로그램에서 유용할 수 있다. 기본적으로 소켓 모듈에는 시간제한이 없고 멈출 수 있다. 현재, 소켓 시간제한은 http.client나 urllib.request 수준에서 노출되지 않는다. 그러나 다음과 같이 모든 소켓에 대해 기본 제한 시간을 전역적으로 설정할 수 있다.
+```python
+import socket
+import urllib.request
+
+# 초단위 시간제한
+timeout = 10
+socket.setdefaulttimeout(timeout)
+
+# 이 urllib.request.urlopen 호출은이제 우리가 socket 모듈에 설정한 기본 시간제한을 사용한다.
+req = urllib.reqeust.Request('http://www.example.com')
+response = urllib.request.urlopen(req)
+```
+
+# html.parser
+## HTMLParser
+잘못된 마크 업을 구문 분석 할 수있는 구문 분석기 인스턴스를 만든다.
+
+convert_charrefs가 True (기본값)이면 모든 문자 참조 (스크립트 / 스타일 요소의 참조 제외)가 해당 유니 코드 문자로 자동 변환된다.
+
+HTMLParser 인스턴스에는 HTML 데이터가 공급되고 시작 태그, 종료 태그, 텍스트, 주석 및 기타 마크 업 요소가 발견되면 핸들러 메서드를 호출한다. 사용자는 HTMLParser를 하위 클래스로 만들고 원하는 동작을 구현하기 위해 메서드를 재정의해야한다.
+
+Example HTML Parser Application
+As a basic example, below is a simple HTML parser that uses the HTMLParser class to print out start tags, end tags, and data as they are encountered:
+```python
+from html.parser import HTMLParser
+
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print("Encountered a start tag:", tag)
+
+    def handle_endtag(self, tag):
+        print("Encountered an end tag :", tag)
+
+    def handle_data(self, data):
+        print("Encountered some data  :", data)
+
+parser = MyHTMLParser()
+parser.feed('<html><head><title>Test</title></head>'
+            '<body><h1>Parse me!</h1></body></html>')
+```
+The attrs argument is a list of (name, value) pairs containing the attributes found inside the tag’s <> brackets. The name will be translated to lower case, and quotes in the value have been removed, and character and entity references have been replaced.
+
+For instance, for the tag `<A HREF="https://www.cwi.nl/">`, this method would be called as handle_starttag('a', [('href', 'https://www.cwi.nl/')]).
+
+[참고]:https://docs.python.org/3/library/html.parser.html#html.parser.HTMLParser
+
+### hasattr(object, name)
+hasattr(object, name)
+인자는 객체와 문자열입니다. 문자열이 객체의 속성 중 하나의 이름이면 결과는 True 이고, 그렇지 않으면 False 가 됩니다. (이것은 getattr(object, name) 을 호출하고 AttributeError 를 발생시키는지를 보는 식으로 구현됩니다.
+
+[참고]:https://docs.python.org/ko/3/library/functions.html?highlight=hasattr#hasattr
+
+# http.client
+GET, POST 외의 방식으로 요청을 보내거나 요청 헤더와 바디 사이에 타이머를 두어 시간을 지연시키는 등 urllib.request 모듈로 쉽게 처리할 수 없는 경우 혹은 HTTP 프로토콜 요청에 대한 저수준의 더 세밀한 기능이 필요한 경우 http.client 모듈 사용함
+urllib.request 모듈도 http.client 모듈에서 제공하는 http.client 모듈에서 제공하는 API 를 사용해서 만들 모듈이다. 
+## http.client 모듈 사용시 코딩 순서
+|순서|예시|
+|--|--|
+|연결 객체 생성|conn=http.client.HTTPConnection("www.pyton.org")
+|요청을 보냄|conn.request("GET","/.index.html")|
+|응답 객체 생성|response=conn.getresponse()|
+|응답 객체를 읽음|data=response.read()|
+|연결을 닫음|conn.close()|
+
+# os.path
+## os.path.abspath(path)
+
+ 
+현재 경로를 Prefix로 하여 입력받은 경로를 절대경로로 바꿔서 반환합니다
+
+## os.path.basename(path)
+
+ 
+입력받은 경로의 기본 이름(base name)을 반환합니다.
+
+abspath() 함수와 반대되는 기능을 수행한다고 볼 수 있습니다.
+```shell
+>>> basename('C:\\Python30\\tmp')
+
+'tmp'
+
+>>> basename('C:\\Python30\\tmp\\test.txt')
+
+'test.txt'
+```
+
+## os.path.commonprefix(path_list)
+
+ 
+입력받은 path_list로부터 공통적인 Prefix를 추출해서 반환합니다. 그러나 이 결과는 문자열 연산에
+
+의한 것이기 때문에 다음의 두 번째 예제와 같이 잘못된 경로가 나올 수도 있습니다.
+```shell
+>>> commonprefix(['C:\\Python30\\Lib', 'C:\\Python30', 'C:\\Python30\\Tools'])
+
+'C:\\Python30'
+
+>>> commonprefix(['C:\\Python26\\Lib', 'C:\\Python25\\Tools'])
+
+'C:\\Python2'
+```
+
+## os.path.dirname(path)
+
+ 
+입력받은 파일/디렉터리의 경로를 반환합니다.
+```shell
+>>> dirname('C:\\Python30\\tmp\\test.txt')
+
+'C:\\Python30\\tmp'
+
+>>> dirname('C:\\Python30\\tmp')
+
+'C:\\Python30'
+```
+
+## os.path.exists(path)
+
+ 
+입력받은 경로가 존재하면 True를 반환하고, 존재하지 않는 경우는 False를 반환합니다.
+
+리눅스와 같은 OS에서는 파일이나 디렉터리가 존재하지만 읽기 권한이 없는 경우에도,
+
+False를 반환할 수 있습니다.
+
+## os.path.expanduser(path)
+
+ 
+입력받은 경로안의 "~"를 현재 사용자 디렉터리의 절대경로로 대체합니다.
+
+"~"에 붙여서 <사용자명>을 붙이면 원하는 사용자 경로로 대체됩니다.
+
+(유닉스/리눅스의 홈디렉터리를 나타내는 '~'과 동일합니다)
+```shell
+>>> expanduser('~\\devanix')
+
+'C:\\Documents and Settings\\Administrator\\devanix'
+```
+
+## os.path.expandvars(path)
+
+ 
+path안에 환경변수가 있따면 확장합니다. (환경변수는 os.environ에 정의된 것을 참조)
+```shell
+>>> expandvars('$HOME\\temp')
+
+'C:\\Documents and Settings\\Administrator\\temp'
+
+>>> expandvars('$SYSTEMROOT\\var')
+
+'C:\\WINDOWS\\var'
+```
+
+## os.path.getatime(path)
+
+ 
+입력받은 경로에 대한 최근 접근 시간을 반환 (반환되는 값은 epoch(1970년 1월 1일) 이후
+
+초단위로 반환됩니다. 파일이 없거나 권한이 없는 경우 os.error 예외 발생)
+```shell
+>>> getatime('C:\\Python30\\python.exe')
+
+1320966393.375
+
+# 읽을 수 있는 형식으로 보려면 다음과 같이 하면 됩니다.
+
+>>> import time
+
+>>> time.gmtime(getatime('C:\\Python30\\python.exe'))
+
+time.struct_time(tm_year=2011, tm_mon=11, tm_mday=10, tm_hour=23, tm_min=6, tm_sec=33, tm_wday=3, tm_yday=314, tm_isdst=0)
+```
+## os.path.getmtime(path)
+
+ 
+입력받은 경로에 대한 최근 변경 시간을 반환 (파일이 없거나 권한이 없는 경우 os.error 예외 발생)
+```shell
+>>> getmtime('C:\\Python30\\python.exe')
+
+1320966397.453125
+```
+
+## os.path.getctime(path)
+
+ 
+입력받은 경로에 대한 생성시간을 반환 (유닉스와 같은 운영체제에서는 생성시간이 아닌
+
+최근 변경 시간을 반환할 수도 있습니다. 파일이 없거나 권한이 없는 경우 os.error 예외 발생)
+```shell
+>>> getctime('C:\\Python30\\python.exe')
+
+1320966393.0625    
+```
+
+## os.path.getsize(path)
+
+ 
+입력받은 경로에 대한 바이트 단위의 파일크기를 반환.
+
+(파일이 없거나 권한이 없는 경우 os.error 예외 발생)
+```shell
+>>> getsize('C:\\Python30\\python.exe')
+
+26624L
+```
+
+## os.path.isabs(path)
+
+ 
+경로가 절대경로이면 True를 반환하고, 그 외의 경우에는 False를 반환.
+
+(실제 해당 경로를 검사하지는 않으며 입력받은 문자열을 가지고 판단합니다.)
+```shell
+>>> isabs('C:\\Python30\\python.exe')
+
+True
+```
+## os.path.isfile(path)
+
+ 
+경로가 파일인지 아닌지 검사합니다. 파일인 경우에는 True를 반환하고, 그 외의 경우 False를 반환.
+
+(혹은 해당 경로가 존재하지 않은 경우에는 False를 반환합니다)
+```shell
+>>> isfile('C:\\Python30\\python.exe')
+
+True
+
+>>> isfile('C:\\Python26\\python.exe')
+
+False
+```
+
+## os.path.isdir(path)
+
+ 
+경로가 디렉터리인지 아닌지 검사합니다. 디렉터리인 경우에는 True를 반환하고, 그 외의 경우에는
+
+False를 반환합니다. 혹은 경로가 존재하지 않은 경우에는 False 반환합니다.
+
+## os.path.join(path1[,path2[,...]])
+
+ 
+해당 OS 형식에 맞도록 입력 받은 경로를 연결합니다. (입력 중간에 절대경로가 나오면 이전에
+
+취합된 경로는 제거하고 다시 연결합니다)
+```shell
+>>> join('C:\\Python30', 'Script', 'test.py')
+
+'C:\\Python30\\Script\\test.py'
+
+>>> join('C:\\Python30', 'D:\\Test', 'test.py')
+
+'D:\\Test\\test.py'
+```
+
+## os.path.normcase(path)
+
+ 
+해당 OS에 맞도록 입력 받은 경로의 문자열을 정규화 합니다. (윈도우와 같은 경우,
+
+아래 예제와 같이 소문자로 바꾸고 '/'를 '\\'로 변경합니다)
+```shell
+>>> normcase('C:\\Python30\\python.exe')
+
+'c:\\python30\\python.exe'
+
+>>> normcase('C:/Python30/python.exe')
+
+'c:\\python30\\python.exe'
+```
+
+## os.path.normpath(path)
+
+ 
+입력 받은 경로를 정규화합니다. (현재 디렉터리(".")나 상위 디렉터리("..")와 같은 구분자를 최대한 삭제)
+```shell
+>>> normpath('C:\\Python30/./python.exe')
+
+'C:\\Python30\\python.exe'
+
+>>> normpath('C:\\Python30/./../python.exe')
+
+'C:\\python.exe'
+```
+
+## os.path.split(path)
+
+ 
+입력 받은 경로를 디렉터리 부분과 파일 부분으로 나눕니다.
+
+단순한 문자열 연산이므로 실제 파일의 존재 여부는 확인하지 않습니다.
+```shell
+>>> split('C:\\Python30\\python.exe')
+
+('C:\\Python30', 'python.exe')
+```
+
+## os.path.splitdrive(path)
+
+ 
+입력 받은 경로를 드라이브 부분과 나머지 부분으로 나눕니다.
+
+단순한 문자열 연산이므로 실제 파일의 존재 여부는 확인하지 않습니다.
+```shell
+>>> splitdrive('C:\\Python30\\python.exe')
+
+('C:', '\\Python30\\python.exe')
+```
+## os.path.splitext(path)
+
+ 
+입력 받은 경로를 확장자 부분과 그 외의 부분으로 나눕니다.
+
+단순한 문자열 연산이므로 실제 파일의 존재 여부는 확인하지 않습니다.
+```shell
+>>> splitext('C:\\Python30\\python.exe')
+
+('C:\\Python30\\python', '.exe')
+```
 
 
+출처: https://devanix.tistory.com/298 [┗System∑Sec†ion┛]
