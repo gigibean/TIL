@@ -142,6 +142,12 @@ timestamp(None이거나 time.time()이 반환한 형식이어야 합니다)로 �
 
 요청 구문 분석과 같은 많은 작업이 베이스 클래스 BaseHTTPRequestHandler 에 의해 수행됩니다. 이 클래스는 do_GET()과 do_HEAD() 함수를 구현합니다.
 
+이는 별도의 코딩 없이도 필요할 때 즉시 웹 서버를 실행할 수 있도록 이 클래스가 정의되어 있습니다.
+핸들러에는 do_GET() 및 do_HEAD() 메서드가 저으이되 어 있어 GET 및 HEADE 방식을 처리할 수 있습니다.
+```
+python -m http.server 8888
+```
+
 다음은 SimpleHTTPRequestHandler 의 클래스 수준 어트리뷰트로 정의됩니다:
 
 ### server_version
@@ -175,6 +181,18 @@ SimpleHTTPRequestHandler 클래스는 다음 메서드를 정의합니다:
 
 ## class http.server.CGIHTTPRequestHandler(request, client_address, server)
 이 클래스는 현재 디렉터리와 그 아래에 있는 파일이나 CGI 스크립트의 출력을 제공하는 데 사용됩니다. HTTP 계층 구조를 로컬 디렉터리 구조에 매핑하는 것은 SimpleHTTPRequestHandler와 정확히 같음에 유의하십시오.
+이 클래스에는 do_POST() 메서드가 정의되어 있어 POST 방식을 처리할 수 있습니다.
+물론 SimpleHTTPRequestHandler 클래스를 상속받고 있어서 GET 및 HEAD 방식도 처리합니다. 다만 CGIHTTPServer 클래스의 do_POST() 메서드는 CGI 처리 기능만 구현되어 있어서 모든 POST 방식을 처리할 수 있는 것은 아닙니다.
+웹서버의 루트 디렉토리에서 실행
+```
+python -m http.server 8888 --cgi
+```
+그리고 서버에서 실행되는 스크립트와 POSt 방식으로 요청을 보낼 클라이언트 서버가 필요함.
+클라이언트요청에 담겨진 질의 문자열에 엑세스 하기위해서 FieldStorage() 클래스의 인스턴스를 생성하고, 그 인스턴스의 getvalue() 메소드를 호출한다.
+CGI 스크립트는 cgi-bin 디렉토리 하위에 위치해야 하고, 리눅스 또는 맥이라면 파일의 엑세스 모드를 755로 변경하여 실행 가능한 파일로 변경해야 한다.
+```
+$ chmod 755 cgi-bin/script.py
+``` 
 
 참고 CGIHTTPRequestHandler 클래스가 실행하는 CGI 스크립트는 리디렉션(HTTP 코드 302)을 실행할 수 없습니다, CGI 스크립트를 실행하기 전에 코드 200(스크립트 출력이 이어집니다)이 전송되기 때문입니다. 이것은 상태 코드를 선점합니다.
 클래스는 CGI 스크립트라고 생각되면 파일로 제공하는 대신 CGI 스크립트를 실행합니다. 디렉터리 기반 CGI만 사용됩니다 --- 다른 일반적인 서버 구성은 특수한 확장자를 CGI 스크립트를 나타내는 것으로 취급하는 것입니다.
