@@ -14,6 +14,7 @@ css가 동작하기 전에 사용가능하므로 웹에서는 분명 css가 동�
 Sass(Syntactically Awesome Style Sheets)의 3버전에서 새롭게 등장한 SCSS는 CSS 구문과 완전히 호환되도록 새로운 구문을 도입해 만든 Sass의 모든 기능을 지원하는 CSS의 상위 집합입니다.
 
 ```Sass
+// Sass
 .list
   width: 100px
   float: left
@@ -25,6 +26,7 @@ Sass(Syntactically Awesome Style Sheets)의 3버전에서 새롭게 등장한 SC
 ```
 
 ```SCSS
+// SCSS
 .list {
   width: 100px;
   float: left;
@@ -44,6 +46,7 @@ Sass의 선택자는 유효범위를 ‘들여쓰기’로 구분하고, SCSS는
 `=`와 `+` 기호로 기능을 사용하는 Sass
 
 ```Sass
+// Sass
 =border-radius($radius)
   -webkit-border-radius: $radius
   -moz-border-radius:    $radius
@@ -55,6 +58,7 @@ Sass의 선택자는 유효범위를 ‘들여쓰기’로 구분하고, SCSS는
 ```
 
 ```SCSS
+// SCSS
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
@@ -83,6 +87,7 @@ html, scss 파일 생성
 
 scss 파일내에
 ```scss
+// Scss
 .container {
     $size: 100px;
     .item {
