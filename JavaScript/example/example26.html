@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Parcel Sandbox</title>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <h2 id="number">0</h2>
+  <div>
+    <button id="increase">+1</button>
+    <button id="decrease">-1</button>
+  </div>
+
+  <script src="src/index.js"></script>
+</body>
+
+</html>
+
+<script>
+  const number = document.getElementById("number");
+  const increase = document.getElementById("increase");
+  const decrease = document.getElementById("decrease");
+
+  increase.onclick = () => {
+    const current = parseInt(number.innerText, 10);
+    if (current < 10) {
+      number.innerText = current + 1;
+    }
+    else {
+      alert("10 is limit")
+    }
+
+  };
+
+  decrease.onclick = () => {
+    const current = parseInt(number.innerText, 10);
+
+    if (current > 0) {
+      number.innerText = current - 1;
+    }
+    else {
+      alert("0 is limit")
+      number.innerText = current;
+    }
+  };
+</script>
