@@ -5,7 +5,7 @@ function Counter() {
 
     const onIncrease = () => {
         if(number < 10) {
-            setNumber(number + 1)
+            setNumber(prevNumber => prevNumber + 1)
         }
         else {
             alert('10 is limit')
@@ -14,7 +14,7 @@ function Counter() {
     }
     const onDecrease = () => {
         if(number > 0) {
-            setNumber(number - 1)
+            setNumber(prevNumber => prevNumber - 1)
         }
         else {
             alert('0 is limit')
