@@ -1,14 +1,16 @@
 import React from 'react';
 import Hello from './Hello';
 import './App.css';
+import Wrapper from './Wrapper';
 
 function App() {
 
   return (
-    <>
-      <Hello name="react" color="red"/>
+    <Wrapper>
+      {/* children */}
+      <Hello name="react" color="red"/> 
       <Hello color="orange" />
-    </>
+    </Wrapper>
   );
 }
 
