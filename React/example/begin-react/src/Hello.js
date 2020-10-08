@@ -1,9 +1,14 @@
 import React from 'react';
 
-function Hello({color, name}) {
-    return <div style={{
+function Hello({color, name, isSpecial}) {
+    return (
+    <div style={{
         color: color
-    }}>Hello World {name}</div>;
+    }}>
+        {isSpecial ? <b>*</b> : null}
+        Hello World {name}
+    </div>
+    );
 }
 
 Hello.defaultProps = {

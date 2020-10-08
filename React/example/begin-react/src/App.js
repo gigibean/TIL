@@ -8,7 +8,7 @@ function App() {
   return (
     <Wrapper>
       {/* children */}
-      <Hello name="react" color="red"/> 
+      <Hello name="react" color="red" isSpecial={true} /> 
       <Hello color="orange" />
     </Wrapper>
   );
