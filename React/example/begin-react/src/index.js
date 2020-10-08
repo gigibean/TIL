@@ -5,10 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
+  // page에서 root인 것을 찾아서 <App />을 넣겠다.
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root') 
+  // in public/index.html
 );
 
 // If you want your app to work offline and load faster, you can change
