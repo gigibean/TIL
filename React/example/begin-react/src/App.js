@@ -39,7 +39,7 @@ function App() {
       id: nextId.current,
       ...inputs,
     };
-    setUsers([...users, user]);
+    setUsers(users.concat(user));
     setInputs({
       username: '',
       email: ''
