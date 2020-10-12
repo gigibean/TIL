@@ -3,13 +3,15 @@ import React, {useEffect} from 'react';
 
 function User({user, onRemove, onToggle}) {
     useEffect(() => {
-        console.log("컴포넌트가 화면에 나타남");
+        console.log("user값이 설정됨", user);
         return () => {
-            console.log('컴포넌트가 화면에서 사라짐');
+            console.log("user 값이 바뀌기 전", user);
         }
-    }, []);
-    // 컴포넌트가 화면에 나타남은 user 컴포넌트가 화면에 나타날 때, 하나씩
-    // 컴포넌트가 화면에서 사라짐은 user 컴포넌트를 삭제했을 때,
+    }, [user]);
+    // 여기서 등록한 위 함수는 이 [user](deps) 값이 설정되거나 바뀔 때마다 
+    // 호출이 된다.
+    // 값이 변경되기 직전엔 cleanup함수가 호출된다.
+    // 변경 뿐아니라 처음 컴포넌트가 호출 될 때에도 이 함수가 호출된다.
     return (
         <div>
             <b style={{
