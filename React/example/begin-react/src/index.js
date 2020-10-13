@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import useInputs from './useInputs';
-import ContextSample from './ContextSample';
 
 ReactDOM.render(
   // page에서 root인 것을 찾아서 <App />을 넣겠다.
   <React.StrictMode>
-    <ContextSample />
+    <App />
   </React.StrictMode>,
   document.getElementById('root') 
   // in public/index.html
