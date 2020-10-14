@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Hello from './Hello';
 
 ReactDOM.render(
   // page에서 root인 것을 찾아서 <App />을 넣겠다.
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+    <Hello />,
+  // </React.StrictMode>,
   document.getElementById('root') 
   // in public/index.html
 );
