@@ -1,7 +1,15 @@
 .App {
-    width: 60%;
+    width: 90%;
     margin: 0 auto;
     margin-top: 4rem;
     border: 1px solid black;
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
