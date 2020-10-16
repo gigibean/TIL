@@ -5,7 +5,7 @@ import Button from './components/Button';
 function App() {
   return (
     <div className="App">
-      <div className="buttons">
+      <div className="buttons notFullWidth">
         <Button size="large" color="red" outline>Button</Button>
         <Button size="medium" color="grape" outline>Button</Button>
         <Button size="small" color="teal" outline>Button</Button>

@@ -32,8 +32,10 @@ $teal: #96f2d7;
     padding-left: 1rem;
     padding-right: 1rem;
 
-    & + & {
-        margin-left: 1rem;
+    @if (& + &) {
+        .notFullWidth > & {
+            margin: 0.5rem;
+        }
     }
 
     &.small {
