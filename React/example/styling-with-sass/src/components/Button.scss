@@ -4,10 +4,20 @@ $teal: #96f2d7;
 @mixin button-color($color) {
     background: $color;
     &:hover {
-        background: lighten($color, 10%);
+        background: lighten($color, 5%);
     }
     &:active {
-        background: darken($color, 10%);
+        background: darken($color, 5%);
+    }
+
+    &.outline {
+        color: $color;
+        background: none;
+        border: 1px solid $color;
+        &:hover {
+            background: $color;
+            color: white;
+        }
     }
 }
 .Button {
@@ -21,6 +31,10 @@ $teal: #96f2d7;
     cursor: pointer;
     padding-left: 1rem;
     padding-right: 1rem;
+
+    & + & {
+        margin-left: 1rem;
+    }
 
     &.small {
         height: 1.75rem;
@@ -50,14 +64,15 @@ $teal: #96f2d7;
         @include button-color($teal);
     }
 
-    // &:hover {
-    //     background: lighten($blue, 10%);
-    // }
-    // &:active {
-    //     background: darken($blue, 10%);
-    //     outline: none;
-    // }
     &:focus, &:active {
         outline: none;
+    }
+
+    &.fullWidth {
+        width: 100%;
+        & + & {
+            margin-left: 0;
+            margin-top: 1rem;
+        }
     }
 }

@@ -6,19 +6,14 @@ function App() {
   return (
     <div className="App">
       <div className="buttons">
-        <Button size="large" color="red">Button</Button>
-        <Button size="medium" color="grape">Button</Button>
-        <Button size="small" color="teal">Button</Button>
+        <Button size="large" color="red" outline>Button</Button>
+        <Button size="medium" color="grape" outline>Button</Button>
+        <Button size="small" color="teal" outline>Button</Button>
       </div>
       <div className="buttons">
-        <Button size="large" color="red">Button</Button>
-        <Button size="medium" color="grape">Button</Button>
-        <Button size="small" color="teal">Button</Button>
-      </div>
-      <div className="buttons">
-        <Button size="large" color="red">Button</Button>
-        <Button size="medium" color="grape">Button</Button>
-        <Button size="small" color="teal">Button</Button>
+        <Button size="large" color="red" fullWidth>Button</Button>
+        <Button size="large" color="grape" fullWidth>Button</Button>
+        <Button size="large" color="teal" fullWidth>Button</Button>
       </div>
     </div>
   );

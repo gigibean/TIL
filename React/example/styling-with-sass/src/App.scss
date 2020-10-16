@@ -3,16 +3,15 @@
     margin: 0 auto;
     margin-top: 1rem;
     border: 1px solid black;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     .buttons + .buttons {
         margin-top: 1rem;
     }
 }
 
-.buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+// .buttons {
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+// }
