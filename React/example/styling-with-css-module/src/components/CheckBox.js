@@ -1,16 +1,18 @@
 import React from 'react'
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md'
 import styles from './CheckBox.module.css'
+import classNames from 'classnames/bind'
 
-console.log(styles)
+const cx = classNames.bind(styles)
+
 function CheckBox({ checked, children, ...rest }) {
   return (
-    <div className={styles.checkbox}>
+    <div className={cx('checkbox')}>
       <label>
         <input type="checkbox" checked={checked} {...rest} />
-        <div className={styles.icon}>
+        <div className={cx('icon')}>
           {checked ? (
-            <MdCheckBox className={styles.checked} />
+            <MdCheckBox className={cx('checked')} />
           ) : (
             <MdCheckBoxOutlineBlank />
           )}
