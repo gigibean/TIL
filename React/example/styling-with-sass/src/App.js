@@ -1,22 +1,44 @@
-import React from 'react';
+import React from 'react'
 import './App.scss'
-import Button from './components/Button';
+import Button from './components/Button'
 
 function App() {
   return (
     <div className="App">
       <div className="buttons notFullWidth">
-        <Button size="large" color="red" outline>Button</Button>
-        <Button size="medium" color="grape" outline>Button</Button>
-        <Button size="small" color="teal" outline>Button</Button>
+        <Button size="large" color="red" outline>
+          Button
+        </Button>
+        <Button size="medium" color="grape" outline>
+          Button
+        </Button>
+        <Button size="small" color="teal" outline>
+          Button
+        </Button>
       </div>
       <div className="buttons">
-        <Button size="large" color="red" fullWidth>Button</Button>
-        <Button size="large" color="grape" fullWidth>Button</Button>
-        <Button size="large" color="teal" fullWidth>Button</Button>
+        <Button size="large" color="red" fullWidth>
+          Button
+        </Button>
+        <Button size="large" color="grape" fullWidth>
+          Button
+        </Button>
+        <Button
+          size="large"
+          color="teal"
+          fullWidth
+          onClick={() => {
+            console.log('click')
+          }}
+          onMouseMove={() => {
+            console.log('mousemove')
+          }}
+        >
+          Button
+        </Button>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
