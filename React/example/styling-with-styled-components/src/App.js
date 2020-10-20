@@ -1,22 +1,20 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import Button from './components/Button'
 
-const Circle = styled.div`
-  width: 5rem;
-  height: 5rem;
-  background: ${(props) => props.color};
-  border-radius: 50%;
-  ${(props) =>
-    props.huge &&
-    css`
-      // css 사용으로 여기 내부에서 props 사용가능
-      width: 10rem;
-      height: 10rem;
-    `}
+const AppBlock = styled.div`
+  width: 512px;
+  margin: 0 auto;
+  margin-top: 4rem;
+  border: 1px solid black;
+  padding: 1rem;
 `
-
 function App() {
-  return <Circle color="teal" huge />
+  return (
+    <AppBlock>
+      <Button>Button</Button>
+    </AppBlock>
+  )
 }
 
 export default App
