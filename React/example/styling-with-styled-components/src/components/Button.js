@@ -1,5 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { darken, lighten } from 'polished'
+
+const colorStyles = css`
+  ${({ theme, color }) => {
+    const seleted = theme.palette[color]
+    return css`
+      background: ${seleted};
+      &:hover {
+        background: ${lighten(0.1, seleted)};
+      }
+      &:active {
+        background: ${darken(0.1, seleted)};
+      }
+    `
+  }}
+`
 
 const StyledButton = styled.button`
   display: iline-flex;
@@ -15,21 +31,23 @@ const StyledButton = styled.button`
   height: 2.25rem;
   font-size: 1rem;
 
-  background: #228be6;
-  &:hover {
-    background: #339af0;
-  }
-  &:active {
-    background: #1c7ed6;
-  }
+  ${colorStyles}
 
   & + & {
     margin-left: 1rem;
   }
 `
 
-function Button({ children, ...rest }) {
-  return <StyledButton {...rest}>{children}</StyledButton>
+function Button({ children, color, ...rest }) {
+  return (
+    <StyledButton color={color} {...rest}>
+      {children}
+    </StyledButton>
+  )
+}
+
+Button.defaultProps = {
+  color: 'blue',
 }
 
 export default Button
