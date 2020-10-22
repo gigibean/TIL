@@ -113,3 +113,51 @@ grades1.user_idkf_winter_g.all()
 
 이런식으로 구분할 수 있게 된다.
 이와 같은 원리와 마찬가지로 ManyToMany 관계일 때도 `related_name`은 필수가 된다.
+
+## migrate: doesn't create tables
+
+migrate를 했는데 db에 반영이 안될 때가 있다.  
+그럴 땐, 우선
+
+```
+class Meta:
+    managed = True
+    db_table = 'post'
+```
+
+이 메타 클래스에서 `managed`가 `False`인지 확인해야한다.
+Django docs에 따르면, options.managed 는 만약 False라면 db table이 생성되거나 operations 를 지우는 것들이 이 모델에서 작동하지 않는 다는 것을 의미한다.
+그렇기 때문에 `managed`를 `False`에서 `True`로 바꿔준다.
+
+이렇게 하고 migrate를 했지만, 그대로 db에 반영되지 않을 때가 있다. 이럴땐,
+
+```
+python manage.py migrate --fake APPNAME zero
+```
+
+를 먼저 한다음에
+
+```
+python manage.py migrate APPNAME
+```
+
+을 하면 된다.
+
+migrate를 할 떄, db에 반영되지 않는다면,
+
+```
+>> No migrations to apply
+```
+
+라고 나온다.  
+그렇기 때문에 가짜로 우선 migrate를 해주는 명령어를 실행하고 migrate를 다시 해주는 것이다.  
+이렇게 되면
+
+```
+>> Running migrations
+```
+
+라고 나오며 migrate를 하게 된다.  
+[출처]
+
+[출처]: https://stackoverflow.com/questions/35494035/django-migrate-doesnt-create-tables/43677713#43677713
