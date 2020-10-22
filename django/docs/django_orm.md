@@ -160,4 +160,78 @@ migrate를 할 떄, db에 반영되지 않는다면,
 라고 나오며 migrate를 하게 된다.  
 [출처]
 
+### ORM -> Mysql
+
+```
+class Post(models.Model):
+    po_id = models.AutoField(primary_key=True)
+    po_num = models.IntegerField()
+    po_parent = models.IntegerField()
+    po_is_comment = models.IntegerField()
+    po_comment = models.IntegerField()
+    po_comment_reply = models.CharField(max_length=5, blank=True, null=True)
+    po_title = models.CharField(max_length=255)
+    po_content = models.TextField()
+    po_link1 = models.TextField(blank=True, null=True)
+    po_link2 = models.TextField(blank=True, null=True)
+    po_hit = models.IntegerField()
+    po_good_cnt = models.IntegerField()
+    member = models.ForeignKey('AuthUser', on_delete=models.CASCADE, related_name='member_username')
+    po_option = models.CharField(max_length=13)
+    mb_email = models.CharField(max_length=254)
+    po_uploadtime = models.DateTimeField()
+    po_file_cnt = models.IntegerField()
+
+    def __str__(self):
+        return self.po_title
+
+    class Meta:
+        managed = False
+        db_table = 'post'
+```
+
+```
+| post  | CREATE TABLE `post` (
+  `po_id` int(11) NOT NULL AUTO_INCREMENT,
+  `po_num` int(11) NOT NULL,
+  `po_parent` int(11) NOT NULL,
+  `po_is_comment` int(11) NOT NULL,
+  `po_comment` int(11) NOT NULL,
+  `po_comment_reply` varchar(5) DEFAULT NULL,
+  `po_title` varchar(255) NOT NULL,
+  `po_content` longtext NOT NULL,
+  `po_link1` longtext DEFAULT NULL,
+  `po_link2` longtext DEFAULT NULL,
+  `po_hit` int(11) NOT NULL,
+  `po_good_cnt` int(11) NOT NULL,
+  `po_option` varchar(13) NOT NULL,
+  `mb_email` varchar(254) NOT NULL,
+  `po_uploadtime` datetime(6) NOT NULL,
+  `po_file_cnt` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  PRIMARY KEY (`po_id`),
+  KEY `post_member_id_6f6b6d4a_fk_auth_user_id` (`member_id`),
+  CONSTRAINT `post_member_id_6f6b6d4a_fk_auth_user_id` FOREIGN KEY (`member_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
+```
+
+여기서 봐야할 부분은 FOREIGN KEY 이다.
+
+```
+member = models.ForeignKey('AuthUser', on_delete=models.CASCADE, related_name='member_username')
+```
+
+위에서 아래로 변환된다.
+
+```
+KEY `post_member_id_6f6b6d4a_fk_auth_user_id` (`member_id`), CONSTRAINT `post_member_id_6f6b6d4a_fk_auth_user_id` FOREIGN KEY (`member_id`) REFERENCES `auth_user` (`id`)
+```
+
+정리하자면,
+
+- 키 이름을 자동 생성하고,
+- 연결된 객체의 이름을 member(객체가져오는) 라고 지정했다면
+- django에서 알아서 `member_id`라는 지정한 이름에 `_id`가 붙은 외래키 이름을 생성한다.
+- 이는 참조하는 객체의 id와 연결된다.
+
 [출처]: https://stackoverflow.com/questions/35494035/django-migrate-doesnt-create-tables/43677713#43677713
