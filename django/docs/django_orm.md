@@ -14,7 +14,7 @@
 class User(models.Model):
     name = models.CharField()
     ...
-    grades = models.ForeignKey('grades', on_delete = models.CASCASE)
+    grades = models.ForeignKey('Grades', on_delete = models.CASCASE)
 
 class Grades(models.Model):
     name = models.CharField()
@@ -46,7 +46,7 @@ students = grades1.user_set.all()
 class User(models.Model):
     name = models.CharField()
     ...
-    grades = models.ForeignKey('grades', on_delete = models.CASCASE, related_name='user_idfk_summber_g')
+    grades = models.ForeignKey('Grades', on_delete = models.CASCASE, related_name='user_idfk_summber_g')
 
 class Grades(models.Model):
     name = models.CharField()
@@ -71,8 +71,8 @@ students = grades1.user_idfk_summber_g.all()
 class User(models.Model):
     name = models.CharField()
     ...
-    summer_grades = models.ForeignKey('grades', on_delete = models.CASCASE, related_name='user_idfk_summber_g')
-    winter_grades = models.ForeignKey('grades', on_delete = models.CASCASE, related_name='user_idfk_winter_g')
+    summer_grades = models.ForeignKey('Grades', on_delete = models.CASCASE, related_name='user_idfk_summber_g')
+    winter_grades = models.ForeignKey('Grades', on_delete = models.CASCASE, related_name='user_idfk_winter_g')
 
 
 class Grades(models.Model):
