@@ -123,7 +123,8 @@ class DjangoSession(models.Model):
 
 
 class File(models.Model):
-    po_id = models.IntegerField()
+    post = models.ForeignKey(
+        'Post', on_delete=models.CASCADE)
     bf_no = models.IntegerField()
     bf_source = models.CharField(max_length=255)
     bf_filesize = models.IntegerField()
@@ -140,8 +141,10 @@ class File(models.Model):
 
 class Good(models.Model):
     bg_id = models.AutoField(primary_key=True)
-    po_id = models.IntegerField()
-    mb_name = models.CharField(max_length=150)
+    post = models.ForeignKey(
+        'Post', on_delete=models.CASCADE)
+    member = models.ForeignKey(
+        'AuthUser', on_delete=models.CASCADE, related_name='good_user')
     bg_flag = models.CharField(max_length=255)
     bg_datetime = models.DateTimeField()
 
@@ -152,13 +155,15 @@ class Good(models.Model):
 
 class Message(models.Model):
     me_id = models.AutoField(primary_key=True)
-    me_send_mb_name = models.CharField(max_length=150)
+    me_send_mb_name = models.ForeignKey(
+        'AuthUser', on_delete=models.CASCADE, related_name='send_username')
     me_send_datetime = models.DateTimeField()
     me_read_datetime = models.DateTimeField()
     me_message = models.TextField()
     me_send_id = models.IntegerField()
     me_type = models.CharField(max_length=4)
-    me_recv_mb_name = models.CharField(max_length=150)
+    me_recv_mb_name = models.ForeignKey(
+        'AuthUser', on_delete=models.CASCADE, related_name='recv_username')
 
     class Meta:
         managed = True
@@ -167,10 +172,12 @@ class Message(models.Model):
 
 class New(models.Model):
     bn_id = models.AutoField(primary_key=True)
-    po_id = models.IntegerField()
+    post = models.ForeignKey(
+        'Post', on_delete=models.CASCADE)
     po_parent = models.IntegerField()
     bn_datetime = models.DateTimeField()
-    mb_name = models.CharField(max_length=150)
+    # member = models.ForeignKey(
+    #     'AuthUser', on_delete=models.CASCADE, related_name='member_username')
 
     class Meta:
         managed = True
@@ -191,9 +198,8 @@ class Post(models.Model):
     po_hit = models.IntegerField()
     po_good_cnt = models.IntegerField()
     member = models.ForeignKey(
-        'AuthUser', on_delete=models.CASCADE, related_name='member_username')
+        'AuthUser', on_delete=models.CASCADE, related_name='posting_user')
     po_option = models.CharField(max_length=13)
-    mb_email = models.CharField(max_length=254)
     po_uploadtime = models.DateTimeField()
     po_file_cnt = models.IntegerField()
 
