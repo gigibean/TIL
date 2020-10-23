@@ -350,5 +350,25 @@ URL을 위한 CharField이다.
 이 필드의 기본 폼 위젯은 TextInput이다.  
 max_length의 기본값은 200이다.
 
+### JSONField
+
+```
+class JSONField(encoder=None, decoder=None, **options)
+```
+
+JSON 인코딩 데이터를저장하기 위한 필드이다.
+python에서 데이터는 python의 기본형식(딕셔너리, 리스트, 문자열, 숫자, 부울린, None)으로 표시된다.
+
+JSONField는 MariaDB 10.2.7+, MySQL 5.7.8+, Oracle, PostgreSQL 및 SQLite 3.9.0+ (JSON1 확장이 활성화 됨)에서 지원된다.
+
+#### JSONField.encoder
+
+표준 JSON 직렬변환기에서 지원하지않는 데이터 유형(ex> datetime.datetime, UUID) 데이터 유형을 직렬하 하기 위한 선택적 json.JSONEcoder 하위 클래스이다. 예를 들어 DjangoJSONEncoder 클래스를 사용할 수 있다. 기본값은 json.JSONEcoder이다.
+
+#### JSONField.decoder
+
+데이터베이스에서 검색된 값을 역 직렬화하기 위한 선택적 json.JSONDecoder 하위 클래스이다. 값은 사용자 지정 인코더에서 선택한 형식이다. deserialization은 입력 유형을 확신할 수 없다는 사실을 고려해야 할 수 있다. 예를 들어 datetime에 대해 선택한 것과 동일한 형식으로 딘 문자열인 dtetime을 반환할 위험이 있다.  
+기본값은 json.JSONDecoder이다.
+
 [fieldfile참고]: https://docs.djangoproject.com/ko/3.1/ref/models/fields/#filefield-and-fieldfile
 [파일관리참고]: https://docs.djangoproject.com/ko/3.1/topics/files/
