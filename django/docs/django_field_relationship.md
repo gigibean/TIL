@@ -227,3 +227,156 @@ False로 설정한다고 해서 교체 가능한 모델이르 참조할 수 있�
 
 확실하지 않은 경우 기본 값인 True로 해놓는다.
 
+### ManyToManyField
+
+```
+class ManyToManyField(to, **options)
+```
+
+다대다 관께 재귀 및 지연 관계를 포함하여 FK와 똑같이 작동하는 모델이 관련된 클래스인 positional 인수가 필요하다.
+
+필드의 RelatedManager 를 사용하여 관련 개체를 추가, 제거 또는 만들 수 있다.
+
+django는 다대다 관계를 나타내는 중간 조인 테이블을 만든다. 기본적으로 이 테이블 이름은 다대다 필드의 이름과 이를 포함하는 모델의 테이블 이름을 사용하여 생성되낟. 일부 데이터베이스는특정 길이 이싱의 테이블 이름을 지원하지 않으므로 이러한 테이블 이름은 자동으로 잘리고 author_books_9cdf와 같은 유니크한 해시가 사용된다. db_table옵션을 사용하여 조인 테이블의 이름을 수동으로 제공할 수 있다.
+
+#### Arguments
+##### ManyToManyField.related_name
+ForeignKey.related_name 과 똑같다.
+
+##### ManyToManyField.related_query_name
+ForeignKey.related_query_name과 똑같다.
+
+##### ManyToManyField.limit_choices_to
+ForeignKey.limit_choices_to와 똑같다.
+limit_choices_to는 through 매개 변수를 사용하여 지정된 사용자 정의 중간 테이블이 있는 ManyToManyField에서 사용될 때 효과가 없다.
+
+##### ManyToManyField.symmetrical
+self.ManyToManyFields의 정의에대해서만 사용된다. 
+
+```python
+from django.db import models
+
+class Person(models.Model):
+    friends = models.ManyToManyField('self')
+```
+django는 이 모델을 처리할 때 자체에 ManyToManyField가 있음을 식별하므로 Person 클래스에 person_set 속성을 추가하지 않는다. 대신 ManyToManyField 는 대칭적인 것으로 간주된다. 즉, 내가 당신의 친구라면 당신은 나의 친구이다.
+
+자기 자신과 다대다 관계에서 대칭을 원하지 않는 경우 대칭을 False로 설정하면된다. 이렇게 하면 django가 역관계에 대한 설명자를 추가하여 ManyToManyField 관계가 비대칭이 될 수 있다.
+
+중개 모델을 사용하는 재귀 다대다 관계에 대해 symmetrical=True 지정이 django 3.0부터 허용된다.
+
+##### ManyToManyField.through
+django는 다대다 관계를 관리하는 테이블을 자동으로 생성한다. 그러나 중간 테이블을 수동으로 지정하는 경우 through옵션을 사용하여 사용하려는 중간 테이블을 나타내는 django 모델을 지정할 수 있다.
+
+이 옵션의 가장 일반적인 용도는 추가 데이터를 다대다 관계와 연결하는 경우이다.
+
+동일한 인스턴스 간에 여러 연결을 원하지 않는 경우 from 및 to 필드를 포함하는 UniqueConstraint 를 추가한다. django의 자동 생성된 다대다 테이블에는 이러한 제약이 포함된다.
+
+중간 모델을 사용하고 대칭 즉, 기본값인 symmetrical=True 사용으로 정의된 재귀 관계는 동일하므로 역방향 접근자의 이름을 결정할 수 없다. 그들 중 하나 이상에 related_name 을 설정해야한다. django가 역방향 관계를  생성하지 않도록 하려면 related_name을 '+'로 설정하면된다.
+
+명시적 through 모델을 지정하지 않아도 연결을 유지하기 위해 생성된 테이블에 직접 액세스하는데 사용할 수 있는 임시적 through 모델 클래스가 있다. 모델을연결하는 세개의 필드가 있다. 소스 및 대상 모델이 다른  경우 다음 필드가 생성된다.
+
+* id: 해당 릴레이션의 PK이다.
+* <contraining_model>_id: ManyToManyField를 선언하는 모델의 ID이다.
+* <other_model>_id: ManyToManyField가 가리키는 모델의 ID이다.
+만약 ManyToManyField가 동일한 모델을 가리키는 경우 다음 필드가 생성된다.
+* id: 해당 릴레이션의 PK이다.
+* from_<model>_id: 모델을 가리키는 인스턴스의 ID
+* to_<model>_id: 관계가 가리키는 인스턴스의 ID (즉, 대상 모델 인스턴스)
+이 클래스는 일반 모델과 같이 지정된 모델 인스턴스에 대한 관련 레코드를 쿼리하는데 사용할 수 있다.   
+
+```python
+Model.m2mfield.through.objects.all()
+```
+
+##### ManyToManyField.through_field
+사용자 지정 중개 모델이 지정된 경우에만 사용된다. django는 일반적으로 다대다 관계를 자동으로 설정하기 위해사용할 중개 모델의 필드를 결정한다. 
+
+```python
+from django.db import models
+
+class Person(models.Model):
+    name = models.CharField(max_length=50)
+
+class Group(mdoels.Model):
+    name = models.CharFeild(max_length=128)
+    members = models.ManyToManyField(
+        Person,
+        through='Membership',
+        through_field=('group', 'person'),
+    )
+
+class Membership(models.Model):
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    inviter = models.ForeignKey(
+        Person,
+        on_delete=models.CASCADE,
+        related_name='membership_invites',
+    )
+    invite_reason = models.CharField(max_length=64)
+```
+Membership에는 Person(person과 inviter)에 대한 두개의 외래키가 있어 관계를 모호하게 만들고 django는 어떤키를 사용해야할지 알 수 없게된다. 이 경우 위의 예에서와 같이 django 가 through_fields 를 사용하여 사용해야하는 외래키를 명시적으로 지정해야한다.
+
+through_fields는 2-튜플('field1','field2')을 허용한다. 여기서 field1은 ManyToManyField가 정의된모델에대한 외래키의 이름이고(Group의 경우), field2는 대상 모델에 대한 외래키의 이름이다(이경우는 Person)
+
+다대다 관계에 참여하는 모델 중 하나 (또는 둘 다)에 대한 중개 모델에 둘 이상의 외래키가 있는 경우 through_fields를 지정해야 한다. 
+이는 재귀적 관계에도 적용되는데, 중개 모델이 사용되고 거기에 2개 이상의 외래키가 사용될 때이다.
+
+##### ManyToManyField.db_table
+대다대 데이터를 저장하기 위해 작성할 테이블의 이름이다. 이것이 제공되지 않으면 django는 관계를 정의하는 모델의 테이블과 필드 자체의 이름을 따라 기본이름을 가정한다.
+
+##### ManyToManyField.db_constraint
+중간 테이블의 외래키에 대한 제약 조건을 데이터베이스에 만들지 여불르 제어한다. 기본값은 True이며, False로 지정하면 데이터무결성에 나쁜 영향을 주 수 있다. 
+
+'db_constraint'와 'through'를 모두 전달하는 것은 오류이다.
+
+#### OneToOneField
+
+```
+class OneToOneField(to, on_delete, parent_link=False, **options)
+```
+일대일 관계 개념적으로 이것은 unique=True인 FK와 유사하지만 관계의 역쪽은 단일 개체를 직접 반환한다.
+
+이것은 어떤 방식으로든 다른 모델을 확장하는 모델의 기본키로 가장 유용하다. 다중 테이블 상속은 예를 들어 하위 모델에서 상위 모델로의 암시적 일대일 관계를 추가하여 구현된다.
+
+하나의 위치인수가 필요하다. 모델이 관련될 클래스이다. 이것은 재귀 및 지연 관계에 관한 모든 옵션을 포함하며 FK와 똑같이 작동한다.
+
+OneToOneField에 related_name 인수를 지정하지 않으면 django는 현재 모델의 소문자 이름을 기본값으로 사용한다.
+
+```python
+from django.conf import settings
+from django.db import models
+
+class MySpecialUser(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    supervisor = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='supervissor_of',
+    )
+```
+이 User 모델은 다음과 같은 결과가 나온다.
+
+```
+>>> user = User.objects.get(pk=1)
+>>> hasattr(user, 'myspecialuser')
+True
+>>> hasattr(user, 'supervisor_of')
+True
+```
+
+관련 테이블에 항목이 없는 경우 역관계에 액세스할 때 RelatedObjectDoesNotExist 예외가 발생한다. 이것은 대상 모델의 Model.DoesNotExist 예외의 하위 클래스이다. 예를 들어 사용자에게 MySpecialUser가 지정한 supervisor가 없는 경우
+
+```
+>>> user.supervisor_of
+RelatedObjectDoesNotExist: User has no supervisor_of
+```
+또한 OneToOneField는 FK에서 허용하는 하나의 추가 인수를 허용한다.
+
+##### OneToOneField.parent_link
+True이고 다른 구체적인 모델에서 상속된 모델에서 사용이 되면 이 필드는 일반적으로 서브 클래스에 의해 암시적으로 생성되는 추가 OneToToneField가 아닌 상위 클래스에 대한 킹그로 다시 사용되어야 함을 나타낸다.
+
