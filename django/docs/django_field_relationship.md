@@ -83,7 +83,7 @@ db_column을 지정하여 명시적으로 변경할 수 있다. 그러나 사용
 
 #### ForeignKey Arguments
 
-#### ForeignKey.on_delete
+##### ForeignKey.on_delete
 
 - SET_NULL
   참조된 개체가 삭제될때 NULL로 설정되기를 원하는 경우
@@ -121,3 +121,109 @@ class Song(models.Model):
 ```
 
 Song이 CASCADE를 통해 Artist 를 참조하기 때문에, Song에서 참조하는 Album 삭제를 의미하는 경우에도 Artist 를 삭제할 수 있다.
+
+###### SET_NULL
+FK를 null로 설정한다. 
+
+###### SET_DEFAULT
+FK의 기본 값을 설정한다. FK의 기본 값은 설정되어 있어야 한다.
+
+###### SET
+FK를 SET()에 전달된 값으로 설정하거나 callable이 전달 된 경우 이를 호출 한 결과로 설정한다.     
+대부분의 경우 models.py를 가져올 때 퀴리를 실행하지 않으려면 callable를 전달해야 한다.
+
+```python
+from django.conf import settings
+from djang.contrib.auth import get_user_model
+from django.db import models
+
+def get_sentinel_user():
+    return get_user_model().objects.get_or_create(username='deleted')[0]
+
+class MyModel(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET(get_sentinel_user),
+    )
+```
+
+###### DO_NOTHING
+아무 액션을 취하지 않는다. 데이터베이스 백엔드가 참조 무결성을 적용하는 경우 데이터베이스 필드에 SQL `ON DELETE` 제약 조건을 수동으로 추가하지 않는 한 IntergrityError가 발생한다.
+
+##### ForeignKey.limit_choices_to
+이 필드가 ModelForm 또는 admin을 사용하여 렌더링 될 때 이 필드에 대해 사용 가능한 선택 사항에 대한 제한을 설정한다. 
+기본적으로 쿼리 세트의 모든 개체를 선택할 수 있음.  
+딕셔너리, Q객체 또는 딕셔너리 또는 Q 객체를 반환하는 callable을 사용할 수 있다.
+
+```python
+staff_member = models.ForeignKey(
+    User,
+    on_delete = models.CASCADE,
+    limit_choices_to = {'is_staff' : True},
+)
+```
+
+ModelForm의 해당 필드에 is_staff=True인 사용자만 나열하게 된다.
+
+예를 들어 호출 가능한양식은 python datetime 모듈과 함께 사용하여 날짜 범위별로 선택을 제한할 때 유용할 수 있다.
+
+```python
+def limit_pub_date_choices():
+    return {'pub_date__lte': datetime.date.utcnow()}
+
+limit_choices_to = limit_pub_date_choices
+```
+
+##### ForeignKey.related_name
+
+관련 개체에서 이 개체까지의 관계에 사용할 이름이다. 또한 related_query_name(대상 모델의 역방향 필터 이름에 사용할 이름)의 기본 값이다. 추상모델에서 관계를 정의 할 때 이값을 설정해야 한다. 그렇게 할 때 몇 가지 특수 구문을 사용할 수 있다.
+
+django 가 역방향 관계를 생성하지 않도록 하려면, related_name을 '+'로 설정하거나, '+'로 끝낸다. 예를들어 User 모델의 역방향 관계를 갖지 않도록 해보자.
+
+```python
+user = model.ForeignKey(
+    User,
+    on_delete=models.CASCADE,
+    related_name="+",
+)
+```
+
+##### ForeignKey.related_query_name
+대상 모델의 역방향 필더 이름에 사용할 이름이다. 
+기본 값은 related_name 또는 default_related_name (설정된 경우) 값이고, 그렇지 않은 경우 기본값은 모델이름이다.
+
+```python
+class Tag(models.Model):
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="tags",
+        related_query_name="tag",
+    )
+    name = models.CharField(max_length=255)
+
+Article.objects.filter(tag__name='important')
+```
+
+역방향 필터 이름을 `tag__name`을 보면, relate_query_name을 사용했음을 알 수 있다.
+
+related_name과 마찬가지로 related_query_name은 일부 특수 구문을 통해앱레이블 및클래스 보간을 지원한다.
+
+##### ForeignKey.to_field
+관계가 있는 관련 개체의 필드이다. 기본적으로 관련 개체의 기본 키를 상용한다. 다른 필드를참조하는 경우 해당 필드를 unique=True라고 해야 한다.    
+
+##### ForeignKey.db_constraint
+이 외래 키에 대해 데이터베이스 제약 조건을 만들어야하는지 여부를 제어한다. 기본값은 True이다.
+이값을 False로 설정하면데이터 무결성에 나쁜 영향을 줄 수 있다.
+False로 설정하면 존재하지 않는 관련 객체에 액세스하면 DoesNotExist 예외가 발생한다. 
+
+##### ForeignKye.swappable
+이 ForeignKey 가 스왑 가능한 모델을 가리키는 경우 마이그레이션 프레임워크의 반응을 제어한다.    
+True인 경우(기본값) ForeignKey 가 현재 셜정값과 일치하는 모델을 가리키는 경우 AUTH_USER_MODEL (또는 다른 스왑 가능한 모델 설정)은 관계가 아닌 설정에 대한 참조를 사용하여 마이그레이션에 저장된다.
+
+모델이 항상 교체된 모델을 가리켜야한다고 확신하는 경우(예: 사용자 지정 사용자 모델을 위해 특별히 설계된 프로필 모델인 경우)에만 이를 False로 재정의 할 수 있다.
+
+False로 설정한다고 해서 교체 가능한 모델이르 참조할 수 있ㄷ는 의미가 아니다. False는 이 FK 키로 만든 마이그레이션이 항상지정한 정확한 모델을 참조한다는 것을 의미한다. 따라서 사용자가 지원하지 않는 사용자 모델을 실행하려고 한다면 실패하게 된다.
+
+확실하지 않은 경우 기본 값인 True로 해놓는다.
+
