@@ -378,5 +378,7 @@ RelatedObjectDoesNotExist: User has no supervisor_of
 또한 OneToOneField는 FK에서 허용하는 하나의 추가 인수를 허용한다.
 
 ##### OneToOneField.parent_link
-True이고 다른 구체적인 모델에서 상속된 모델에서 사용이 되면 이 필드는 일반적으로 서브 클래스에 의해 암시적으로 생성되는 추가 OneToToneField가 아닌 상위 클래스에 대한 킹그로 다시 사용되어야 함을 나타낸다.
+True이고 다른 구체적인 모델에서 상속된 모델에서 사용이 되면 이 필드는 일반적으로 서브 클래스에 의해 암시적으로 생성되는 추가 OneToToneField가 아닌 상위 클래스에 대한 링크로 다시 사용되어야 함을 나타낸다.
 
+## Field API Reference
+Field는 데이터베이스의 컬럼을 표현하는 추상적인 클래스이다.
