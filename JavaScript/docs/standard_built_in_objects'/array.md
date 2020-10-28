@@ -378,4 +378,85 @@ arr.filter(callback(element[, index[, array]])[, thisArg])
 ### 설명
 배열 내 각요소에 대해 한번 제공된 callback함수를 호출해 callback이 true로 강제하는 값을 반환하는 모든 값이 있는 새로운 배열을 생성한다. callback은 할당된 값이 있는 배열의 인덱스에 대해서만 호출된다. 삭제됐거나 값이 할당된 적이 없는 인덱스에 대해서는 호출하지 않는다. callback테스트를 통과하지 못한 배열요소는 그냥 건너 뛰며 새로운 배열에 포함되지 않는다.
 
+callback은 다음 세 인수와 함께 호출된다:
+1. 요소값
+2. 요소 인덱스
+3. 순회되는 객체 배열
+thisArg 매개변수가 filter에 제공된 경우, 호출될 때 그 값은 callback의 this 값으로 전달된다. 
+그 이외에 undefined 값도 callback의 this값으로 쓰기 위해 전달된다. 결국 callback의 해 관찰될 수 있는 this 값은 this를 결정하는 함수의 평소 규칙에 따라 결정된다.
+
+filter()는 호출되는 배열을 변화시키지(mutate)않는다.
+
+filter()에 의해 처리되는 요소의 범위는 callback의 첫 호출 전에 설정된다. filter() 호출 시작이후 배열의 추가된 요소는 callback에 의해 방문되지 않는다. 배열의 기존 요소가 변경 도는 삭제된 경우, callback에 전달된 그 값은 filter() 가 그 요소를 방문한시점에 값이 된다. 삭제된 요소는 반영되지 않는다.
+
+### 예제
+
+#### 모든 작은 값 걸러내기
+
+```js
+function solution(n) {
+    return n >= 10
+}
+var filterd = [12, 4, 100, 200, 14].filter(solution)
+// filterd == [12, 4, 14]
+```
+
+#### JSON에서 무효한 항목 거르기
+0이아닌 숫자 id인 모든 요소의 걸러진 json을 만들기 위해 filter()를 사용한다.
+```js
+var arr = [
+    {id: 15},
+    {id: -1},
+    {id: 0},
+    {id: 3},
+    {id: 12.2},
+    {id: null},
+    {}.
+    {id: NaN},
+    {id: 'undefined'}
+]
+var invalidEntries = 0;
+
+function isNumber(obj) {
+    return obj !== undefined && typeof(obj) === 'number' && !isNaN(obj)
+}
+
+function filterById(item) {
+    if(isNumber(item.id) && item.id !== 0) {
+        return true
+    }
+    invalidEntries++
+    return false
+}
+
+var aryById = arr.filter(filterById)
+
+console.log('filtered array\n', arrByID)
+
+//filtered array
+// [{id: 15}, {id: -1}, {id: 3}, {id: 12.2}]
+
+console.log('number of invalid entries = ', invalidEntries)
+// number of invalid entries = 5
+```
+
+```js
+var fruits = ['apple', 'banana', 'grapes', 'mango', 'orange']
+// 검색 조건에 따른 필터링(쿼리)
+function filterItems(query) {
+    return fruits.filter(function(el) {
+        return el.toLowerCase().indexOf(query.toLowerCase()) > -1
+    })
+}
+
+console.log(filterItems('ap')) // ['apple', 'grapes']
+console.log(filterItems('an')) // ['banana', 'mango', 'orange']
+```
+
+```js
+const filterItems = (query) => {
+    fruits.filter((value) => 
+        value.toLowerCase().indexOf(query.toLowerCase()) > -1
+    )
+}
 </details>
