@@ -459,4 +459,273 @@ const filterItems = (query) => {
         value.toLowerCase().indexOf(query.toLowerCase()) > -1
     )
 }
+```
 </details>
+
+## Array.find()
+주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환한다. 그런 요소가 없다면 undefined를 반환한다.
+
+## Array.findIndex()
+주어진 판별 함수를 만족하는 첫 번째 요소의 인덱스를 반환한다. 그런 요소가 없다면 -1 를 반환한다.
+
+## Array.flat()
+모든 하위 배열 요소를 지정한 깊이 까지 재귀적으로 이어붙인 새로운 배열을 생성한다.
+
+<details>
+<summary>Array.flat() 자세히</summary>
+
+### 구문
+
+```js
+const newArr = arr.falt([depth])
+```
+#### 매개변수
+* depth (optional) : 중첩 배열 구조를 평탄화할 때 사용할 깊이의 값. 기본 값은 1이다.
+
+#### 반환값
+하위 배열을 이어 붙인 새로운 배열
+
+### 예제
+#### 중첩 배열 평탄화
+
+```js 
+const arr1 = [1, 2, [3, 4]]
+arr.flat()
+// [1, 2, 3, 4]
+
+const arr2 = [1, 2, [3, 4, [5 ,6]]]
+arr2.flat()
+// [1, 2, 3, 4, [5, 6]]
+
+arr.flat(2)
+// [1, 2, 3, 4, 5, 6]
+
+const arr3 = [1, 2, [3, 4, [5, 6 [7, 8, [9, 10]]]]]
+arr.flat(Infinity)
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+#### 배열 구멍 제고
+
+```js
+const arr1 = [1, 2, , 4, 5]
+arr1.flat()
+// [1, 2, 4, 5]
+```
+### 대안
+#### reduce 와 concat
+
+```js
+const arr = [1, 2, [3, 4]]
+// To flat single level array
+arr.flat()
+// is equivalent to 
+arr.redeuce((acc, val) => acc.concat(val), [])
+// [1, 2, 3, 4]
+
+// or with decomposition syntax
+const flattened = arr => [].concat(...arr)
+```
+
+</details>
+
+## Array.flatMap()
+먼저 미팽함수를 사용해 각 엘리먼트에 대해 map 수행 후 결과를 새로운 배열로 평탄화한다. 이는 깊이 1의 flat이 뒤따르는 map과 동일하지만 flatMap은 이 두개의 메소드를 병합할 때 효율적이다.
+
+<details>
+<summary>Array.flatMap() 예제</summary>
+
+### 예제
+#### map과 flatMap
+```js
+let arr1 = [1,2,3,4]
+arr1.map(x => [x * 2])
+// [[2], [4], [6], [8]]
+
+arr1.flatMap(x => [x * 2])
+// [2, 4, 6, 8]
+
+arr1.flatMap(x => [[x * 2]])
+// [[2], [4], [6], [8]]
+```
+
+```js
+let arr1 = ["it's Sunny in", "", "California"]
+arr1.map(x => x.split(" "))
+// [["it's", "Sunny", "in"], [""], ["California"]]
+
+arr1.flatMap(x => x.split(" "))
+//["it's", "Sunny", "in", "California"]
+```
+
+#### flatMap()을 이용한 아이템 추가 및 제거
+map을 하는 과정에서 아이템을 추가하거나 제거([]를 반환)하여 아이템의 개수를 바꿀 수도 잇다. 다른 말로는 각각의 아이템에 대해 1:1대응관계 분만아니라 다대다 대응도 가능하다는 것이다. 이러한 측면에서 filter가 하는 역할의 반대역할을 한다고 볼 수 있다. 단순히 아무런 변화를 주고 싶지않을 때에는 원소 하나를 가진 배열을 반활 수도, 아이템을 추가하고 싶을 때는 다-원소 배열을 반환할수도, 아이템을 제고하고싶을 때는 빈배열을 반환할 수도 있다.
+
+```js
+let a = [5, 4, -3, 20, 17, -33, -4, 18]
+
+a.flatMap(value => 
+(value < 0) ? [] : 
+(value % 2) ? [value - 1, 1] : [value]
+)
+```
+
+</details>
+
+## Array.forEach()
+주어진 함수를 배열 요소 각각에 대해 실행한다. 반환값은 undefined이다.
+
+<details>
+<summary>다양한 for 문</summary>
+
+### for ...of
+반복가능한 객체(Array, Map, Set, String, TypedArray, arguments 객체등을 포함)에 대해서 반복하고 객 개별 속성값에 대해 실행되는 문이 있는 사용자 정의 반복 후크를 호출하는 루프를 생성한다.
+
+### for ...in
+상속된 열거 가능한 속성들을 포함하여 객체에서 문자열로 키가 지정된 모든 열거 가능한 속성에 대해 반복한다.
+배열 인덱스는 정수로 된 열거 가능한 속성이며, 일반적인 객체의 속성과 같다. for...in은 특정 순서에 따라 인덱스를 반환하는 것을 보장할 수 없다. for...in 반복문은 정수가 아닌 이름을 가진 속성, 상속된 모든 열거 가능한 속성들을 반환한다.
+
+반복되는 순서는 구현에 따라 다르기 때문에 배열의 반복이 일관된 순서로 요소를 방문하지 못할 수도 있다. 그러므로 방문의 순서가 중요한 배열의 반복시 숫자 인덱스를 사용할 수 있는 for 반복문을 사용하는 것이 좋다. 또는 forEach나 for...of
+
+</details>
+
+## Array.includes()
+배열이 특정 요소를 포함하고 있는지 판별한다. boolean 값을 반환한다.
+
+<details>
+<summary>비슷한 메서드</summary>
+
+* Array.find() : 해당 배열 안에 판별 함수를 만족하는 첫번째 요소의 값을 반환한다.
+* Array.findIndex() : 해당 배열 안에 판별 함수를 만족하는 첫번째 요소의 인덱스를 반환한다.
+* Array.every() : 해당 배열의 요소들이 판별 함수를 만족하는 지 boolean으로 반환한다.
+* Array.indexOf() : 배열에서 지정된 요소를 찾을 수 있는 첫 인덱스를 반환하고 존재하지 않으면 -1를 반환한다.
+
+</details>
+
+## Array.join()
+배열의 모든 요소를 연결해 하나의 `문자열`로 만든다.
++ String.split()은 문자열을 하나의 배열로 만든다.
+
+## Array.keys()
+배열의 각 인덱스를 키 값으로 가지는 새로운 Array Iterator 객체를 반환한다.
+
+## Array.lastIndexOf()
+배열에서 주어진 값을 발견할 수 있는 마지막 인덱스를 반환하고 요소가 존재하지 않으면 -1을 반환한다. 배열 탐색은 fromIndex(2번째 파라미터)에서 시작하여 뒤로 진행된다.
+
++ Array.indexOf()는 첫 인덱스를 반환한다면 Array.lastIndexOf()는 마지막 인덱스를 반환한다.
+
+## Array.map()
+배열 내에 모든 요소에 각각에 대한 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환한다.  
+반환값은 배열의 각 요소에 대해 실행한 callback의 결과를 모은 새로운 배열이다.
+
+## Array.pop()
+배열에서 마지막 요소를 제거하고 그 요소를 반환한다.
+반환 값은 배열에서 제거한 요소이고 빈 배열인 경우 undefined를 반환한다.
+
+## Array.push()
+배열의 끝에 하나 이상의 요소를 추가하고 배열의 새로운 길이를 반환한다.
+
+여러개를 추가하고 싶으면 콤마(,) 로 이어주면 된다.
+
+반환값은 호출한 배열의 새로운 length이다.
+
+## Array.reduce()
+배열의 각 요소에 대해 주어진 reducer함수를 실행하고 하나의 결과값을 반환한다.
+
+리듀서 함수는 네 개의 인자를 가진다.
+* 누산기(acc)
+* 현재값(cur)
+* 현재 인덱스(idx)
+* 원본 배열(src)
+리듀서 함수의 반환값은 누산기에 할당되고 누산기는 순회 중 유지되므로 결국 최종 결과는하나의 값이 된다.
+
+<details>
+<summary>Array.reduce 자세히</summary>
+
+### 구문
+```js
+arr.reduce(callback[, initialValue])
+```
+
+#### 매개변수
+* callback : 배열의 각 요소에 대해 실행할 함수 다음 네가지 인수를 받는다.
+    * accumulator: 누산기는 콜백의 반환값을 누적한다. 콜백의 이전 반환값 또는 콜백의 첫번째 호출이면서 initialValue를 제공한 경우에는 initialValue의 값이다.
+    * currentValue: 처리할 현재 요소
+    * currentIndex (optional): 처리한 현재 요소의 인덱스 
+    * array (optional): reduce를 호출한 배열
+* initialValue (optional) : callback의 최초 호출에서 첫 번째 인수에 제공하는 값 초기값을 제공하지 않으면 배열의 첫 번째 요소를 사용한다. 빈 배열에서 초기값없이 reduce()를 호출하면 오류가 발생한다.
+
+#### 반환값
+누적 계산의 결과 값
+<details>
+
+## Array.reduceRight()
+reduce() 메서드와 같지만 오른쪽에서 왼쪽으로 값을 단일 값으로 줄인다.
+
+## Array.reverse()
+배열의 순서를반전한다. 첫번째 요소는 마지막 요소가 되며 마지막 요소는 첫번째 요소가 된다.
+
+## Array.shift()
+배열에서 첫 번재 요소를 제거하고 제거된 요소를 반환한다. 이 메서드는 배열의 길이를 변하게 한다.
+
+## Array.slice()
+배열의 begin부터 end(optional)까지 얕은 복사본을 새로운 배열 객체로 반환한다. 원본 배열은 바뀌지 않는다.
+
+## Array.some()
+배열의 어떤 요소라도 하나만 참이면 true를 반환하고 모두 만족하지 못하면 false를 반환한다.
+
+## Array.sort()
+배열의 요소를 적절한 위치에 정렬한 후 그 배열을 반환한다. 정렬은 stable sort가 아닐 수 있다. 기본 정렬 순서는 문자열의 유니코드 코드 포인트를 따른다.
+그래서 10보다 2가 더클 수도 있다.
+그렇기 때문에 sort에 compare함수를 적어주어야 한다.
+
+`Array.sort((a,b) => a-b)`혹은 `Array.sort((a,b) b-a)`(reverse)
+
+## Array.splice()
+배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가하여 배열의 내용을 변경한다.
+
+<details>
+<summary>Array.splice() 자세히</summary>
+
+### 구문
+```js
+array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+```
+
+#### 매개변수
+* start: 배열의 변경을 시작할 인덱스
+* deleteCount (optional) : 배열에서 제거할 요소의 수 만약 0이하면 어느 요소도 제거하지 않는다. 그 인덱스에 있는 요소가 뒤로 밀리고 그자리에 지정 값(3번째 인자)을 넣는다.
+* item (optional) : 배열에 추가할 요소. 아무것도 지정하지 않으면 기존 요소를 제거만 한다.
+
+#### 반환값
+제거한 요소를 담은 배열, 하나의 요소만 제거한 경우 길이가 1인 배열을 반환한다. 아무것도제거하지 않으면 빈 배열을 반환한다.
+
+</details>
+
+## Array.toLacaleString()
+배열의 요소를 나타낸는 문자열을 반환한다. 요소는 이 메서드를 사용하여 문자열로 변환되고 이 문자열은 locale 고유 문자열(가령 쉼표',')에 의해 분리된다.
+
+<details>
+<summary>Array.toLacaleString 자세히</summary>
+
+### 예제
+```js
+var number = 1331;
+var date = new Date()
+var myArr = [number , date, 'foo']
+var str = myArr.toLocaleString();
+console.log(str);
+//"1,331,10/29/2020, 11:09:53 AM,foo"
+```
+</details>
+
+## Array.toString()
+toString() 메서드는 배열 및 그 요소를 나타내는 문자열을 반환한다.
+
+### 설명
+Array객체는 Object의 toString 메서드를 재정의한다. Array객체에 대해 toString 메서드는 배열을 합쳐(join) 쉼표로 구분된 각 배열의 요소를 포함하는 하나의 문자열을 반환한다. 
+
+## Array.unshift()
+새로운 요소를 배열의 맨 앞쪽에 추가하고 새로운길이를 반환한다.
+
+## Array.values()
+배열의 각 인덱스에 대한 값을 가지는 새로운 Array Iterator 객체를 반환한다.
