@@ -104,7 +104,116 @@ function test() {
     obj1.b.c = 4
     console.log(JSON.stringify(obj3)) // {a : 0, b, {c : 0}}
 }
+```
+</details>
 
+
+
+### Object.create()
+지정된 프로토타입 객체 및 속성을 갖는 새 객체를 만든다. 
+
+<details>
+<summary>Object.create() 자세히</summary>
+
+#### 구문
+```js
+Object.create(proto[, propertiesObject])
+```
+##### 매개변수
+* `proto` : 새로 만든 객체의 프로토타입이어야 할 객체
+* `propertiesObject` (optional) : 지정되고 undefined가 아니면, 자신의 속성(즉, 자체에 정의되어 그 프로토타입체인에서 열거 가능하지 않은 속성)이 열거가능한 객체는 해당 속성명으로 새로 만든 객체에 추가될 속성 설명자를 지정한다. 
+
+##### 반환값
+지정된 프로토타입 개체와 속성을 갖는 새로운 객체
+
+##### 예외
+proto 매개변수가 Null또는 객체가 아닌 경우 TypeError 예외가 발생
+
+#### 예제
+`Object.create(protop, propertiesObject])`는 주로 객체를 상속하기 위해 사용하는 메서드이다. 첫 인자를 상속하게 되며, 두번째 인자의 속성을 추가적으로 가지게 된다.   
+
+```js
+// 상위 클래스
+function Vehicle(name) {
+    this.name = name;
+}
+
+// 상위 클래스 메서드
+Vehicle.prototype.move = function () {
+    console.log(`${this.name} moved`)
+}
+
+// 하위 클래스
+function Car(name, color) {
+    // 상위 클래스 생성자 호출 
+    Vehicle.call(this, name)
+
+    // 하위 클래스의 속성 지정
+    this.color = color
+}
+
+// Object.create()를 사용하여 Car 프로토타입을 확장
+// 두 프로토타입을 서로 연경하여 단일 프로토타입 체인을 만든다.
+Car.prototype = Object.create(Vehicle.prototype, {
+    fuel: {
+        value: 'gasonline',
+    },
+});
+
+Car.prototype.constructor = Vehicle;
+
+// Car 객체 생성
+var myCar = new Car('A8', 'blue')
+myCar.move() // A8 moved
+console.log(myCar.fuel) // gasonline
+```
+
+#### new Constructor() 와 비교
+```js
+function Foo() {
+    this.bar = 42
+
+    console.log('Foo constructor will not executed by Object.create')
+}
+Foo.prototype.method = function () {}
+
+var obj1 = new Foo() // Foo constructor will not executed by Object.create
+var obj2 = Object.create(Foo.prototype)
+
+console.log(typeof obj1.method) // function
+console.log(typeof obj2.method) // function
+
+console.log(obj1.bar) //42
+console.log(obj2.bar) //undefined
+```
+
+성능 상으로도 new Constructor()를 사용하는 것이 좋다.
+```js
+function Obj() {
+    this.p = 1
+}
+
+var propObj = {
+    p: 1,
+}
+
+console.time('Object.create()')
+var obj;
+for (let i = 0; i < 10000; i++) {
+    obj = Object.create(propObj)
+}
+console.timeEnd('Object.create()')
+// Object.create(): 1.633ms
+
+
+console.time('constructor function')
+var obj2
+for (let i = 0 ; i< 10000; i++) {
+    obj2 = new Obj();
+}
+console.timeEnd('constructor function')
+// constructor function: 0.920ms
+```
 
 </details>
 
