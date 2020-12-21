@@ -1,4 +1,4 @@
-# TodoList
+# React TodoList 만들기
 
 <img src="./imgs/result_todolist.gif">
 
