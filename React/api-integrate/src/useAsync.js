@@ -25,7 +25,7 @@ function reducer(state, action) {
   }
 }
 
-function useAsync(callback, deps = []) {
+function useAsync(callback, deps = [], skip = false) {
   // callback: dispatch SUCCESS 에서 필요한 Data를 받는 API 요청 함수
   // deps: useEffect 의 deps
   const [state, dispatch] = useReducer(reducer, {
@@ -44,6 +44,7 @@ function useAsync(callback, deps = []) {
   };
 
   useEffect(() => {
+    if (skip) return;
     fetchData();
   }, deps);
 
