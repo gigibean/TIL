@@ -1,12 +1,12 @@
 import React from "react";
-import { UserProvider } from "./UsersContext";
+import { UsersProvider } from "./UsersContext";
 import Users from "./UsersReducer";
 
 function App() {
   return (
-    <UserProvider>
+    <UsersProvider>
       <Users />
-    </UserProvider>
+    </UsersProvider>
   );
 }
 
