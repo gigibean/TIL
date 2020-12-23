@@ -15,8 +15,10 @@
   - [Styled Components 로 버튼 꾸미기](https://github.com/gigibean/TIL/tree/master/React/example/styling-with-styled-components)
 - [예제 2](https://github.com/gigibean/TIL/tree/master/React/my-app-dir)
   - [class 형 컴포넌트에서 prop&state 사용](https://github.com/gigibean/TIL/tree/master/React/my-app-dir/my-app)
-  - [Post API Backend Django](https://github.com/gigibean/TIL/tree/master/React/my-app-dir/react-django-app)
-  - [Post API Frontend React](https://github.com/gigibean/TIL/tree/master/React/my-app-dir/reactfontend)
+  - Post
+    - [Post 설명](https://github.com/gigibean/TIL/blob/master/React/doc/react-django-app.md)
+    - [Post API Backend Django](https://github.com/gigibean/TIL/tree/master/React/my-app-dir/react-django-app)
+    - [Post Frontend React](https://github.com/gigibean/TIL/tree/master/React/my-app-dir/reactfontend)
 - [TODO List](https://github.com/gigibean/TIL/tree/master/React/mashup-todolist)
   - [사용한 hooks 개념 및 정리](https://github.com/gigibean/TIL/blob/master/React/doc/hooks/useContext_useReduce_useRef.md)
   - [README](https://github.com/gigibean/TIL/blob/master/React/mashup-todolist/README.md)
