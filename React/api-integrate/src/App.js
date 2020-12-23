@@ -1,8 +1,13 @@
 import React from "react";
+import { UserProvider } from "./UsersContext";
 import Users from "./UsersReducer";
 
 function App() {
-  return <Users />;
+  return (
+    <UserProvider>
+      <Users />
+    </UserProvider>
+  );
 }
 
 export default App;
