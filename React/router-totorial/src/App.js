@@ -15,6 +15,9 @@ const App = () => {
         <li>
           <Link to="/about">About</Link>
         </li>
+        <li>
+          <Link to="/profiles">Profiles</Link>
+        </li>
       </ul>
       <hr />
       <Route path="/" exact={true} component={Home} />
