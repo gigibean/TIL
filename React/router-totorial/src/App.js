@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
 import Profile from "./Profile";
+import Profiles from "./Profiles";
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
       <hr />
       <Route path="/" exact={true} component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/profiles/:user" component={Profile} />
+      <Route path="/profiles" component={Profiles} />
     </div>
   );
 };

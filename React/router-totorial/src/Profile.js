@@ -1,16 +1,5 @@
 import React from "react";
-
-// 프로필에서 사용할 데이터
-const profileData = {
-  Johny: {
-    name: "John",
-    description: "Junior Frontend Engineer",
-  },
-  Kiki: {
-    name: "Kim",
-    description: "Senior Fronted Engineer",
-  },
-};
+import { profileData } from "./profileData";
 
 const Profile = ({ match }) => {
   // params를 받아올 땐 match 안에 들어있는 params 값 참조
