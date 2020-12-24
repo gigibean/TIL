@@ -49,3 +49,9 @@ SPA의 단점은 앱의 규모가 커지면 자바스크립트 파일 사이즈�
 
 추가적으로, 자바스크립트 파일이 아직 캐싱되지 않는 사용자는 아주 짧은 시작동안 흰 페이지가 나타날 수도 있다는 단점도 있다. 이는 서버사이드 렌더링을 통해 해결할 수 있다.
 #react
+
+---
+
+<b>참고</b>
+[velog.io/@josworks27](https://velog.io/@josworks27/SPA-%EA%B0%9C%EB%85%90)
+[react.vlpt.us](https://react.vlpt.us/react-router/)
