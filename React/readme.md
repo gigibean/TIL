@@ -27,3 +27,4 @@
 - [react-router 사용하기](https://github.com/gigibean/TIL/tree/master/React/router-totorial)
   - [SPA 란?](https://github.com/gigibean/TIL/blob/master/React/doc/router/SPA.md)
   - [라우터 사용](https://github.com/gigibean/TIL/blob/master/React/doc/router/react-router-dom.md)
+  - [params와 query](https://github.com/gigibean/TIL/blob/master/React/doc/router/params_query.md)
