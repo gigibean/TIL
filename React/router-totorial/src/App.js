@@ -2,8 +2,8 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
-import Profile from "./Profile";
 import Profiles from "./Profiles";
+import HistorySample from "./HistorySample";
 
 const App = () => {
   return (
@@ -18,11 +18,15 @@ const App = () => {
         <li>
           <Link to="/profiles">Profiles</Link>
         </li>
+        <li>
+          <Link to="/history">에제</Link>
+        </li>
       </ul>
       <hr />
       <Route path="/" exact={true} component={Home} />
       <Route path="/about" component={About} />
       <Route path="/profiles" component={Profiles} />
+      <Route path="/history" component={HistorySample} />
     </div>
   );
 };
