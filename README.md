@@ -2,9 +2,118 @@
 
 Today I Learn
 
-<b>Index</b>
+## Index
 
-## EAMAScript6
+### JavaScript
+
+<details>
+<summary>JavaScript Index</summary>
+
+- [문서]()
+
+  - [HowJavaScriptWorks]
+    - [boolean](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/HowJavaScriptWorks/boolean.md)
+    - [naming](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/HowJavaScriptWorks/naming.md)
+    - [number](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/HowJavaScriptWorks/number.md)
+  - [표준 내장 객체](https://github.com/gigibean/TIL/tree/master/JavaScript/docs/standard_built_in_objects')
+    - [Array](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/array.md)
+    - [Map](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/map.md)
+    - [Object](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/object.md)
+    - [Set](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/set.md)
+    - [String](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/string.md)
+  - [동기, 비동기](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/Asynchronous.md)
+  - [바인딩](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/bindling.md)
+  - [type 바꾸기](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/change_type.md)
+  - [표현식](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/Expression.md)
+  - [정규식](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/regular_expressions.md)
+  - [Promise](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/promise.md)
+  - [JS 프로토타입](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/prototype.md)
+  - [JS 프로토타입 메서드와 프로퍼티](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/prototype_method_property.md)
+  </details>
+
+  ### VanillaJS
+
+<details>
+<summary>VanillaJS Index</summary>
+
+- [DOM 요소](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md)
+
+  - [Vanilla JS 개발의 장단점](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#vanilla-js-개발의-장단점)
+  - [JQuery의 장단점](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#jquery의-장단점)
+  - [DOM 요소 1](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#dom-요소-1)
+    - [li[i].textContent == li[i].innerText](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#liitextcontent--liiinnertext)
+    - [node object와 element object 의 차이점](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#node-object와-element-object-의-차이점)
+
+- [노드의 속성 접근 및 변경](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md)
+
+  - [tagName](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#tagname)
+  - [get set 방식](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#get-set-방식)
+  - [노드클래스 이름 속성](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드클래스-이름-속성)
+  - [노드의 속성 읽기](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드의-속성-읽기)
+  - [노드의 속성 변경](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드의-속성-변경)
+  - [노드의 속성 제거](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드의-속성-제거)
+  - [노드의 속성이 있는지 점검](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드의-속성이-있는지-점검)
+  - [liList[2] == liLst.item(2)](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#lilist2--lilstitem2)
+
+- [DOM 이벤트 1](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc3.md)
+
+  - [인라인 방식](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc3.md#인라인-방식)
+  - [속성 방식](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc3.md#속성-방식)
+  - [자향하는 코드 방식](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc3.md#지향하는-코드-방식)
+
+- [DOM 요소 - 2](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md)
+
+  - [상위 노드에 접근](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#상위-노드에-접근)
+  - [상위 html 노드에 접근](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#상위-노드에-접근)
+  - [노드의 텍스트 내용 읽고 쓰기](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#노드의-텍스트-내용-읽고-쓰기)
+  - [노드의 html 내용 읽고 쓰기](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#노드의-html-내용-읽고-쓰기)
+  - [하위 노드 여부](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#하위-노드-여부)
+  - [처음 하위 노드에 접근](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#처음-하위-노드에-접근)
+  - [하위 노드에 접근](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#하위-노드에-접근)
+  - [노드의 속성 제거](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#노드의-속성-제거)
+  - [새로운 노드를 생성](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#새로운-노드를-생성)
+  - [노드에 생선된 새로운 노드 추가](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#노드에-생선된-새로운-노드-추가)
+
+- [DOM 요소 - 3](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc5.md)
+
+  - [노드에 생선된 새로운 노드를 기준 노드 위치 이전 위치에 추가](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc5.md#노드에-생선된-새로운-노드를-기준-노드-위치-이전-위치에-추가)
+  - [노드 삭제](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc5.md#노드-삭제)
+  - [노드 복제](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc5.md#노드-복제)
+
+- [DOM 요소 - 4](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md)
+
+  - [하위 노드가 있는지 점검](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#하위-노드가-있는지-점검)
+  - [노드 클래스](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스)
+  - [노드 클래스 추가](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스-추가)
+  - [노드 클래스 제거](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스-제거)
+  - [노드 클래스 여부 반환](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스-여부-반환)
+  - [노드 클래스 추가, 제거 토글](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스-추가-제거-토글)
+
+- [이벤트](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md)
+
+  - [dblclick](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#dblclick)
+  - [mouseenter vs. mouseover & mouseleave vs. mouseout](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#mouseenter-vs-mouseover--mouseleave-vs-mouseout)
+  - [focus vs. focusin & blur vs. focusout](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#mouseenter-vs-mouseover--mouseleave-vs-mouseout)
+  - [e.target.value](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#etargetvalue)
+  - [Event Bubbling](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#event-bubbling)
+    - [상위의 화면 요소란](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#상위의-화면-요소란)
+  - [Event Capture](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#event-capture)
+
+- [offset](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md)
+  - [offsetTop](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#offsettop)
+  - [window.pageYOffset](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#windowpageyoffset)
+  - [offsetLeft](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#offsetleft)
+  - [offsetWidth (height)](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#offsetwidth-height)
+  - [element.clientWidth (height)](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#elementclientwidth-height)
+  - [element.scrollWidth (height)](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#elementclientwidth-height)
+  - [element.getBoundingClientRect();](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#elementclientwidth-height)
+
+</details>
+
+### EAMAScript6
+
+<details>
+<summary>EAMAScript6 Index</summary>
 
 - [식별자, 원시타입, 이스케이프](https://github.com/gigibean/TIL/blob/master/ECMAScripts6/doc/description1.md)
 
@@ -142,104 +251,12 @@ Today I Learn
   - [hasOwnProperty](https://github.com/gigibean/TIL/blob/master/ECMAScripts6/doc/description25.md#hasownproperty)
   - [set](https://github.com/gigibean/TIL/blob/master/ECMAScripts6/doc/description25.md#set)
 
-## JavaScript
+</details>
 
-- [문서]()
+### React
 
-  - [HowJavaScriptWorks]
-    - [boolean](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/HowJavaScriptWorks/boolean.md)
-    - [naming](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/HowJavaScriptWorks/naming.md)
-    - [number](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/HowJavaScriptWorks/number.md)
-  - [표준 내장 객체](https://github.com/gigibean/TIL/tree/master/JavaScript/docs/standard_built_in_objects')
-    - [Array](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/array.md)
-    - [Map](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/map.md)
-    - [Object](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/object.md)
-    - [Set](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/set.md)
-    - [String](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/standard_built_in_objects'/string.md)
-  - [동기, 비동기](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/Asynchronous.md)
-  - [바인딩](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/bindling.md)
-  - [type 바꾸기](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/change_type.md)
-  - [표현식](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/Expression.md)
-  - [정규식](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/regular_expressions.md)
-  - [Promise](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/promise.md)
-  - [JS 프로토타입](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/prototype.md)
-  - [JS 프로토타입 메서드와 프로퍼티](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/prototype_method_property.md)
-
-  ## VanillaJS
-
-- [DOM 요소](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md)
-
-  - [Vanilla JS 개발의 장단점](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#vanilla-js-개발의-장단점)
-  - [JQuery의 장단점](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#jquery의-장단점)
-  - [DOM 요소 1](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#dom-요소-1)
-    - [li[i].textContent == li[i].innerText](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#liitextcontent--liiinnertext)
-    - [node object와 element object 의 차이점](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc1.md#node-object와-element-object-의-차이점)
-
-- [노드의 속성 접근 및 변경](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md)
-
-  - [tagName](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#tagname)
-  - [get set 방식](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#get-set-방식)
-  - [노드클래스 이름 속성](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드클래스-이름-속성)
-  - [노드의 속성 읽기](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드의-속성-읽기)
-  - [노드의 속성 변경](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드의-속성-변경)
-  - [노드의 속성 제거](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드의-속성-제거)
-  - [노드의 속성이 있는지 점검](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#노드의-속성이-있는지-점검)
-  - [liList[2] == liLst.item(2)](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc2.md#lilist2--lilstitem2)
-
-- [DOM 이벤트 1](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc3.md)
-
-  - [인라인 방식](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc3.md#인라인-방식)
-  - [속성 방식](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc3.md#속성-방식)
-  - [자향하는 코드 방식](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc3.md#지향하는-코드-방식)
-
-- [DOM 요소 - 2](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md)
-
-  - [상위 노드에 접근](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#상위-노드에-접근)
-  - [상위 html 노드에 접근](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#상위-노드에-접근)
-  - [노드의 텍스트 내용 읽고 쓰기](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#노드의-텍스트-내용-읽고-쓰기)
-  - [노드의 html 내용 읽고 쓰기](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#노드의-html-내용-읽고-쓰기)
-  - [하위 노드 여부](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#하위-노드-여부)
-  - [처음 하위 노드에 접근](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#처음-하위-노드에-접근)
-  - [하위 노드에 접근](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#하위-노드에-접근)
-  - [노드의 속성 제거](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#노드의-속성-제거)
-  - [새로운 노드를 생성](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#새로운-노드를-생성)
-  - [노드에 생선된 새로운 노드 추가](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc4.md#노드에-생선된-새로운-노드-추가)
-
-- [DOM 요소 - 3](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc5.md)
-
-  - [노드에 생선된 새로운 노드를 기준 노드 위치 이전 위치에 추가](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc5.md#노드에-생선된-새로운-노드를-기준-노드-위치-이전-위치에-추가)
-  - [노드 삭제](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc5.md#노드-삭제)
-  - [노드 복제](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc5.md#노드-복제)
-
-- [DOM 요소 - 4](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md)
-
-  - [하위 노드가 있는지 점검](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#하위-노드가-있는지-점검)
-  - [노드 클래스](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스)
-  - [노드 클래스 추가](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스-추가)
-  - [노드 클래스 제거](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스-제거)
-  - [노드 클래스 여부 반환](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스-여부-반환)
-  - [노드 클래스 추가, 제거 토글](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc6.md#노드-클래스-추가-제거-토글)
-
-- [이벤트](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md)
-
-  - [dblclick](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#dblclick)
-  - [mouseenter vs. mouseover & mouseleave vs. mouseout](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#mouseenter-vs-mouseover--mouseleave-vs-mouseout)
-  - [focus vs. focusin & blur vs. focusout](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#mouseenter-vs-mouseover--mouseleave-vs-mouseout)
-  - [e.target.value](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#etargetvalue)
-  - [Event Bubbling](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#event-bubbling)
-    - [상위의 화면 요소란](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#상위의-화면-요소란)
-  - [Event Capture](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc7.md#event-capture)
-
-- [offset](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md)
-  - [offsetTop](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#offsettop)
-  - [window.pageYOffset](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#windowpageyoffset)
-  - [offsetLeft](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#offsetleft)
-  - [offsetWidth (height)](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#offsetwidth-height)
-  - [element.clientWidth (height)](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#elementclientwidth-height)
-  - [element.scrollWidth (height)](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#elementclientwidth-height)
-  - [element.getBoundingClientRect();](https://github.com/gigibean/TIL/blob/master/VanillaJS/doc/doc8.md#elementclientwidth-height)
-
-## React
+<details>
+<summary>React Index</summary>
 
 - [문서](https://github.com/gigibean/TIL/tree/master/React/doc)
   - [리액트 개요](https://github.com/gigibean/TIL/blob/master/React/doc/summary.md)
@@ -268,8 +285,12 @@ Today I Learn
   - [라우터 사용](https://github.com/gigibean/TIL/blob/master/React/doc/router/react-router-dom.md)
   - [params와 query(location과 match)](https://github.com/gigibean/TIL/blob/master/React/doc/router/params_query.md)
   - [Route와 Link 사용하기](https://github.com/gigibean/TIL/blob/master/React/doc/router/use_link_route.md)
+  </details>
 
-## SASS
+### SASS
+
+<details>
+<summary>SASS Index</summary>
 
 - [SASS](https://github.com/gigibean/TIL/blob/master/SASS/docs/SASS%EB%9E%80.md)
 
@@ -327,7 +348,14 @@ Today I Learn
       - [Map 함수](https://github.com/gigibean/TIL/blob/master/SASS/docs/SASS%EB%9E%80.md#map-함수)
       - [관리(Introspection) 함수](https://github.com/gigibean/TIL/blob/master/SASS/docs/SASS%EB%9E%80.md#관리introspection-함수)
 
-## API
+</details>
+
+---
+
+### API
+
+<details>
+<summary>API Index</summary>
 
 - [Post 용 API APP](https://github.com/gigibean/TIL/tree/master/Api/django_api_project)
 - [Web Server Library](https://github.com/gigibean/TIL/tree/master/Api/web_server_library)
@@ -399,7 +427,12 @@ Today I Learn
           - [cgi_directories](https://github.com/gigibean/TIL/blob/master/Api/web_server_library/docs/doc1.md#cgi_directories)
           - [do_POST()](https://github.com/gigibean/TIL/blob/master/Api/web_server_library/docs/doc1.md#do_post)
 
-## django
+</details>
+
+### django
+
+<details>
+<summary>Django Index</summary>
 
 - [Django Field](https://github.com/gigibean/TIL/blob/master/django/docs/django_field_options.md)
 
@@ -506,9 +539,12 @@ Today I Learn
 
 - [Use Sqlite3](https://github.com/gigibean/TIL/blob/master/django/docs/use_sqlite3.md)
 
-## MySQL
+</details>
 
-<b>Index</b>
+### MySQL
+
+<details>
+<summary>MySQL Index</summary>
 
 - [Basic Command](https://github.com/gigibean/TIL/blob/master/mysql/command/basic_command.md)
 
@@ -539,3 +575,5 @@ Today I Learn
 
 - [Basic Menual](https://github.com/gigibean/TIL/blob/master/mysql/workbench/basic_menual.md)
   - [작성된 DB를 EER DIAGRAM으로 변환](https://github.com/gigibean/TIL/blob/master/mysql/workbench/basic_menual.md#작성된-db를-eer-diagram으로-변환)
+
+</details>
