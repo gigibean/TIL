@@ -3,7 +3,7 @@
 <b>Index</b>
 
 - [문서]()
-  - [HowJavaScriptWorks]
+  - [HowJavaScriptWorks](https://github.com/gigibean/TIL/tree/master/JavaScript/docs/HowJavaScriptWorks)
     - [boolean](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/HowJavaScriptWorks/boolean.md)
     - [naming](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/HowJavaScriptWorks/naming.md)
     - [number](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/HowJavaScriptWorks/number.md)
