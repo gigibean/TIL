@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, NavLink, Route } from "react-router-dom";
 import Profile from "./Profile";
 import { profileData } from "./profileData";
+import WithRouterSample from "./WithRouterSample";
 
 const Profiles = () => {
   const users = profileData;
@@ -13,7 +14,15 @@ const Profiles = () => {
       <ul>
         {Object.keys(users).map((user) => (
           <li>
-            <Link to={{ pathname: `/profiles/${user}` }}>{user}</Link>
+            <NavLink
+              to={{ pathname: `/profiles/${user}` }}
+              activeStyle={{
+                background: "black",
+                color: "white",
+              }}
+            >
+              {user}
+            </NavLink>
           </li>
         ))}
       </ul>
@@ -24,6 +33,7 @@ const Profiles = () => {
         render={() => <div>유저를 선택해주세요.</div>}
       />
       <Route path="/profiles/:user" component={Profile} />
+      <WithRouterSample />
     </div>
   );
 };
