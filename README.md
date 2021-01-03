@@ -578,6 +578,10 @@ Today I Learn
 
 </details>
 
+---
+
+### DataStucture & Algorithms
+
 <details>
 <summary>C DateType Index</summary>
 
