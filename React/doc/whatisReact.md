@@ -31,7 +31,7 @@ UI 컴포넌트 라이브러리
   - 기존의 웹 개발 방식은 관심사의 분리보단 마크업, 디자인, 로직을 분리하는 기술의 분리에 가까웠다.
   - React는 기존의 방식이 아닌 컴포넌트 형태로 관심사를 분리하도록 했다.
 
-    <img src=“https://user-images.githubusercontent.com/6733004/44943427-2c864f00-ae01-11e8-84b0-e013c2a4611e.png” />
+    ![alt text](https://user-images.githubusercontent.com/6733004/44943427-2c864f00-ae01-11e8-84b0-e013c2a4611e.png)
 
 > React.js는 컴포넌트로써 마크업과 뷰의 로직을 하나의 컴포넌트 function 혹은 createClass() 안에서 작성한다. 하지만 마크업은HTML이나 mustache로 작성하고 뷰의 로직은 자바스크립트로 나눠서 작성하는 기존의 방식을 취하지 않는다. 이에 대해 React.js의 개발자는 기술의 분리(Separation of technologies) 보다 관심사의 분리(Separation of concerns) 가 되어야 하며, 마크업과 뷰의 로직은 긴밀해야 한다 고 하며 템플릿의 문법으로 불필요하게 코드를 작성하는 것보다 자바스크립트로 작성하는 것이 더 좋다고 말했다.
 >
@@ -67,7 +67,7 @@ https://github.com/airbnb/javascript/pull/985
 - 기존(예..jQuery) 방식
   DOM에 변화가 생기면 렌터 트리를 재생성하고 이 과정에서 모든 요소들의 스타일이 다시 계산되고 레이아웃을 만들고 페인팅하는 과정 반복된다. 즉, DOM의 변화가 많아져 연산이 많아진다.
 
-  <img src=“https://media.vlpt.us/post-images/kyusung/1667deb0-6345-11e9-b9fb-c5519db56e71/1dPsRfoMnizQc1FYveSWr-g.png” />
+  ![alt text](https://media.vlpt.us/post-images/kyusung/1667deb0-6345-11e9-b9fb-c5519db56e71/1dPsRfoMnizQc1FYveSWr-g.png)
 
 #### Virtual DOM 동작방식
 
@@ -80,6 +80,5 @@ React는 성능 개선을 위해 `Diff Algorithm`을 수행하여 컴포넌트�
 
 React.js는 단방향 데이터 흐름을 지향한다. 양방향 데이터 바인딩을 사용할 때처럼 작성한 코드의 양이 확연히 줄거나 하지는 않으나, 애플리케이션의 데이터를 관리하는 데이터 컴포넌트가 있고 그 데이터를 UI 컴포넌트에 전달하는 단순한 데이터 흐름, 이해와 관리가 용이한 어플리케이션 만들 수 있다.
 
-<img src=“https://miro.medium.com/max/1838/0*35JeHn5u_Kldva32.png” />
-
-<img src=“https://user-images.githubusercontent.com/6733004/44943425-2c864f00-ae01-11e8-84d3-3757af3451d2.jpg” />
+![alt text](https://miro.medium.com/max/1838/0*35JeHn5u_Kldva32.png)
+![alt text](https://user-images.githubusercontent.com/6733004/44943425-2c864f00-ae01-11e8-84d3-3757af3451d2.jpg)
