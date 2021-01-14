@@ -4,6 +4,7 @@
 
 - [문서](https://github.com/gigibean/TIL/tree/master/React/doc)
   - [리액트 개요](https://github.com/gigibean/TIL/blob/master/React/doc/summary.md)
+  - [리액트 란?](https://github.com/gigibean/TIL/blob/master/React/doc/whatisReact.md)
   - [이벤트 다루기](https://github.com/gigibean/TIL/blob/master/React/doc/Event.md)
   - [React를 위한 JS](https://github.com/gigibean/TIL/blob/master/React/doc/JSForReact.md)
   - [JSX 란?](https://github.com/gigibean/TIL/blob/master/React/doc/JSX.md)

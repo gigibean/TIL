@@ -7,7 +7,7 @@ Today I Learn
 ### FrontEnd
 
 <details>
-<summary>JavaScript Index</summary>
+<summary>FrontEnd Index</summary>
 
 - [프론트엔드 성능 최적화](https://github.com/gigibean/TIL/blob/master/FrontEnd/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94.md)
 
@@ -40,6 +40,8 @@ Today I Learn
   - [Promise](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/promise.md)
   - [JS 프로토타입](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/prototype.md)
   - [JS 프로토타입 메서드와 프로퍼티](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/prototype_method_property.md)
+  - [import와 export](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/import%EC%99%80export.md)
+
   </details>
 
   ### VanillaJS
@@ -271,6 +273,7 @@ Today I Learn
 
 - [문서](https://github.com/gigibean/TIL/tree/master/React/doc)
   - [리액트 개요](https://github.com/gigibean/TIL/blob/master/React/doc/summary.md)
+  - [리액트 란?](https://github.com/gigibean/TIL/blob/master/React/doc/whatisReact.md)
   - [이벤트 다루기](https://github.com/gigibean/TIL/blob/master/React/doc/Event.md)
   - [React를 위한 JS](https://github.com/gigibean/TIL/blob/master/React/doc/JSForReact.md)
   - [JSX 란?](https://github.com/gigibean/TIL/blob/master/React/doc/JSX.md)
