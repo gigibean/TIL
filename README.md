@@ -42,6 +42,10 @@ Today I Learn
   - [JS 프로토타입 메서드와 프로퍼티](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/prototype_method_property.md)
   - [import와 export](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/import%EC%99%80export.md)
 
+- example
+
+  - [배열, 객체 map 과 filter 사용](https://github.com/gigibean/TIL/blob/master/JavaScript/example/show_list.js)
+
   </details>
 
   ### VanillaJS
@@ -278,6 +282,7 @@ Today I Learn
   - [React를 위한 JS](https://github.com/gigibean/TIL/blob/master/React/doc/JSForReact.md)
   - [JSX 란?](https://github.com/gigibean/TIL/blob/master/React/doc/JSX.md)
   - [props 와 state](https://github.com/gigibean/TIL/blob/master/React/doc/PropsAndState.md)
+  - [useContext useState useReducer 함께 사용하기](https://github.com/gigibean/TIL/blob/master/React/doc/hooks/hooks.md)
 - [예제 1](https://github.com/gigibean/TIL/tree/master/React/example)
   - [1씩 증감하는 버튼 만들기](https://github.com/gigibean/TIL/tree/master/React/example/begin-react)
   - [CSS 로 체크박스 꾸미기](https://github.com/gigibean/TIL/tree/master/React/example/styling-with-css-module)
