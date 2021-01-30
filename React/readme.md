@@ -10,6 +10,7 @@
   - [JSX 란?](https://github.com/gigibean/TIL/blob/master/React/doc/JSX.md)
   - [props 와 state](https://github.com/gigibean/TIL/blob/master/React/doc/PropsAndState.md)
   - [useContext useState useReducer 함께 사용하기](https://github.com/gigibean/TIL/blob/master/React/doc/hooks/hooks.md)
+  - [setState updater 함수 사용과 차이](https://github.com/gigibean/TIL/blob/master/React/doc/hooks/updater.md)
 - [예제 1](https://github.com/gigibean/TIL/tree/master/React/example)
   - [1씩 증감하는 버튼 만들기](https://github.com/gigibean/TIL/tree/master/React/example/begin-react)
   - [CSS 로 체크박스 꾸미기](https://github.com/gigibean/TIL/tree/master/React/example/styling-with-css-module)
