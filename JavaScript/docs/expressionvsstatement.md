@@ -61,5 +61,11 @@ function greet() {
 // 다음과 동일함:  => { return expression; }
 ```
 
+```js
+// 화살표 함수의 유일한 문장이 'return'일 때 'return'과
+// 중괄호({})를 생략할 수 있다.
+elements.map((element) => element.length);
+```
+
 [참고](https://m.blog.naver.com/PostView.nhn?blogId=jdub7138&logNo=221028032624&proxyReferer=https:%2F%2Fwww.google.com%2F)
 [참고](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
