@@ -41,6 +41,7 @@ Today I Learn
   - [JS 프로토타입](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/prototype.md)
   - [JS 프로토타입 메서드와 프로퍼티](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/prototype_method_property.md)
   - [import와 export](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/import%EC%99%80export.md)
+  - [Expression vs. Statement](https://github.com/gigibean/TIL/blob/master/JavaScript/docs/expressionvsstatement.md)
 
 - example
 
