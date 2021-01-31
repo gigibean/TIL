@@ -6,6 +6,7 @@
   - [Pointer](https://github.com/gigibean/TIL/blob/master/DateStructureAndAlgorithm/DateTypeOfC/pointer.md)
     - [pointer 관련 연산자](https://github.com/gigibean/TIL/blob/master/DateStructureAndAlgorithm/DateTypeOfC/pointer.md#pointer-%EA%B4%80%EB%A0%A8-%EC%97%B0%EC%82%B0%EC%9E%90)
     - [다중 포인터](https://github.com/gigibean/TIL/blob/master/DateStructureAndAlgorithm/DateTypeOfC/pointer.md#%EB%8B%A4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0)
+    - [함수 포인터](https://github.com/gigibean/TIL/blob/master/DataStructureAndAlgorithm/DateTypeOfC/function_pointer.md)
   - [문자, 문자열](https://github.com/gigibean/TIL/blob/master/DateStructureAndAlgorithm/DateTypeOfC/char.md)
     - [문자](https://github.com/gigibean/TIL/blob/master/DateStructureAndAlgorithm/DateTypeOfC/char.md#%EB%AC%B8%EC%9E%90)
     - [문자열](https://github.com/gigibean/TIL/blob/master/DateStructureAndAlgorithm/DateTypeOfC/char.md#%EB%AC%B8%EC%9E%90%EC%97%B4)
