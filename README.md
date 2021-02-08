@@ -632,7 +632,7 @@ Today I Learn
 
 <summary>Algorithm</summary>
 
-- [입출력](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms)
+- [입출력](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output)
   - [입출력 기초](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/input_ouput.js)
   - [2558](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/2558.js)
   - [2741](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/2741.js)
