@@ -628,6 +628,27 @@ Today I Learn
 
 </details>
 
+<details>
+
+<summary>Algorithm</summary>
+
+- [입출력](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output)
+  - [입출력 기초](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/input_ouput.js)
+  - [2558](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/2558.js)
+  - [2741](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/2741.js)
+  - [10950](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/10950.js)
+  - [10951](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/10951.js)
+  - [10952](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/10952.js)
+  - [10953](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/10953.js)
+  - [11021](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11021.js)
+  - [11022](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11022.js)
+  - [11718](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11718.js)
+  - [11719](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11719.js)
+  - [11720](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11720.js)
+  - [11721](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11721.js)
+
+</details>
+
 ---
 
 ### Linux
