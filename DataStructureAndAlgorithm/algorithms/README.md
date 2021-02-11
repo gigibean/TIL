@@ -29,6 +29,6 @@ boj.kr/[index]
   - [11721](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11721.js)
 
 - [DP](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp)
-  - [1463](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/1463.js)
-  - [11726](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11726.js)
-  - [11727](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11726.js)
+  - [1463](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/1463.js)
+  - [11726](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/11726.js)
+  - [11727](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/11726.js)
