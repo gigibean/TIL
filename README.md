@@ -648,6 +648,11 @@ Today I Learn
   - [11720](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11720.js)
   - [11721](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/input_and_output/11721.js)
 
+- [stack](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack)
+
+  - [9093](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/9093.js)
+  - [10828](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/10828.js)
+
 - [DP](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp)
   - [1463](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/1463.js)
   - [11726](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/11726.js)
@@ -657,7 +662,7 @@ Today I Learn
   - [11057](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/11057.js)
   - [2193](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/2193.js)
   - [9465](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/9465.js)
-- [문자열](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/string)
+- [스택](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/string)
   - [9093](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/string/9093.js)
 
 </details>
