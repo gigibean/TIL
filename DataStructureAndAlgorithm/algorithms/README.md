@@ -35,6 +35,7 @@ boj.kr/[index]
   - [9012](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/9012.js)
   - [1874](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/1874.js)
   - [1406](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/1406.js)
+  - [17413](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/17413.js)
 
 - [queue](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/queue)
 
