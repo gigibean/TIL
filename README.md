@@ -655,16 +655,15 @@ Today I Learn
   - [9012](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/9012.js)
   - [1874](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/1874.js)
   - [1406](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/1406.js)
+  - [17413](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/17413.js)
+  - [10799](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/10799.js)
+  - [17298](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/17298.js)
 
 - [queue](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/queue)
 
   - [10845](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/queue/10845.js)
   - [1158](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/queue/1158.js)
   - [10828](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/queue/10828.js)
-  - [1406](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/1406.js)
-  - [17413](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/17413.js)
-  - [10799](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/10799.js)
-  - [17298](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/stack/17298.js)
 
 - [DP](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp)
   - [1463](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/1463.js)
