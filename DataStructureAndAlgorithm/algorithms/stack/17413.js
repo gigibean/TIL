@@ -4,9 +4,8 @@ const input =
     ? fs.readFileSync("/dev/stdin").toString()
     : `<   space   >space space space<    spa   c e>`;
 
-const re = /<.+?>|\s/g;
+const re = /(<.+?>|\s)/g;
 const tmp = input.split(re);
-console.log(tmp);
 let result = [];
 tmp.map((x) => {
   if (re.test(x)) {
