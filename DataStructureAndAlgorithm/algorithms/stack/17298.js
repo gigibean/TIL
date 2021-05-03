@@ -18,21 +18,3 @@ for (let i = 0; i < input.length; i++) {
   tmp.push(i);
 }
 console.log(result.join(" "));
-
-// let stack = [];
-// let result = new Array(input.length).fill(-1);
-// for (let i = 0; i < input.length; i++) {
-//   while (stack.length && input[stack[stack.length - 1]] < input[i]) {
-//     result[stack[stack.length - 1]] = input[i];
-//     stack.pop();
-//   }
-//   //   const ssize = stack.length;
-//   //   for (let j = ssize - 1; j >= 0; j--) {
-//   //     if (input[i + 1] > input[stack[j]]) {
-//   //       result[stack[j]] = input[i + 1];
-//   //       stack.pop();
-//   //     }
-//   //   }
-//   stack.push(i);
-// }
-// console.log(result.join(" "));
