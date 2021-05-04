@@ -666,6 +666,10 @@ Today I Learn
   - [1158](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/queue/1158.js)
   - [10828](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/queue/10828.js)
 
+- [math](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/math)
+
+  - [10430](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/math/10430.js)
+
 - [DP](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp)
   - [1463](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/1463.js)
   - [11726](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/11726.js)
