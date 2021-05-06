@@ -54,6 +54,7 @@ boj.kr/[index]
   - [1929](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/math/1929.js)
   - [6588](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/math/6588.js)
   - [10872](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/math/10872.js)
+  - [1676](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/math/1676.js)
 
 - [DP](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp)
   - [1463](https://github.com/gigibean/TIL/tree/master/DataStructureAndAlgorithm/algorithms/dp/1463.js)
