@@ -43,3 +43,37 @@ function solution(tickets) {
     ["ICN"]
   );
 }
+
+// 재귀함수
+function solution(tickets) {
+  let result = [];
+  const dfs = (depth, str, start, visited) => {
+    if (str.length === tickets.length + 1) {
+      result = str;
+      return;
+    }
+
+    const tmp = [];
+    tickets.forEach((ticket, index) => {
+      const [sp, ep] = ticket;
+      if (sp === start) {
+        if (!visited.includes(index)) {
+          tmp.push([ep, index]);
+        }
+      }
+    });
+    if (tmp.length) {
+      tmp.sort((a, b) => {
+        if (a[0] > b[0]) return 1;
+        else return -1;
+      });
+      tmp.forEach((item) => {
+        const [ep, index] = item;
+        if (!result.length)
+          dfs(depth + 1, [...str, ep], ep, [...visited, index]);
+      });
+    }
+  };
+  dfs(0, ["ICN"], "ICN", []);
+  return result;
+}
